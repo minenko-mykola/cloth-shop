@@ -1,0 +1,12 @@
+.idea
+backend/config/.env.hashing
+backend/config/.env.postgres
+frontend/node_modules
+frontend/.next
+backend/node_modules
+backend/photos
+backend/tsconfig.tsbuildinfo
+
+frontend/eslint.config.mjs
+frontend/next-env.d.ts
+frontend/next.config.ts

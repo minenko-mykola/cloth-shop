@@ -1,0 +1,8 @@
+name: cloth-shop-project
+
+include:
+  - path: docker-compose.mysqls.yml
+  - path: docker-compose.redis.yml
+  - path: docker-compose.apps.yml
+  - path: docker-compose.elk.yml
+  - path: docker-compose.kafka.yml
