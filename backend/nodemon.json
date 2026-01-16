@@ -1,0 +1,8 @@
+{
+  "watch": ["server/controllers/*"],
+  "ext": "js,ts",
+  "exec": "tsc --noEmit && tsx server/index.ts",
+  "legacyWatch": true,
+  "pollingInterval": 100,
+  "verbose": true
+}
