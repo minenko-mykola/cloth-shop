@@ -1,0 +1,28 @@
+services:
+  redis:
+    image: redis/redis-stack:latest
+    container_name: redis_cache
+    restart: always
+    ports:
+      - "6379:6379"  # Redis Port
+
+    volumes:
+      - ./redis/redis.conf:/usr/local/etc/redis/redis.conf
+      - redis_data:/data
+    # Змінну REDIS_PASSWORD краще прибрати, якщо пароль вже в redis.conf,
+    # або переконатися, що вони однакові.
+    command: [ "redis-server", "/usr/local/etc/redis/redis.conf" ]
+    networks:
+      - local-kafka
+      - elk-net
+
+volumes:
+  redis_data:
+
+networks:
+  local-kafka:
+    name: local-kafka-shared # Явно вказуємо назву, щоб уникнути префіксів папок
+    driver: bridge
+  elk-net:
+    external: true
+    name: elk-network
