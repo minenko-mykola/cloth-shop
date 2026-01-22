@@ -14,6 +14,14 @@ export const DownHeader = () => {
                     <SatchelIcon></SatchelIcon>
                     Blouses
                 </Link>
+                <Link href="/gloves">
+                    <SatchelIcon></SatchelIcon>
+                    Gloves
+                </Link>
+                <Link href="/tshirts">
+                    <SatchelIcon></SatchelIcon>
+                    TShirts
+                </Link>
             </Flex>
         </section>
     );

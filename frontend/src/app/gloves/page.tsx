@@ -13,7 +13,7 @@ export default function Home() {
     const [loaded, setLoaded] = useState(false);
 
     useEffect(() => {
-        categoryFilter.filterByCategory([SubCategoryTypes.GlovesCategory])
+        categoryFilter.filterByCategory(SubCategoryTypes.GlovesCategory)
         setLoaded(true);
     },[])
 
