@@ -5,5 +5,7 @@ export enum SubCategoryTypes{
     MenTShirtCategory = "MenTShirtCategory",
     BlousesCategory = "BlousesCategory",
     WomenShirtCategory = "WomenShirtCategory",
-    WomenTShirtCategory = "WomenTShirtCategory"
+    WomenTShirtCategory = "WomenTShirtCategory",
+    ShirtCategory = "ShirtCategory",
+    TShirtCategory = "TShirtCategory"
 }

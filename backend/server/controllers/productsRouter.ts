@@ -21,13 +21,25 @@ async function getCategoryData(product: ProductInfo) : Promise<ProductSubCategor
     }
 }
 
+async function createClientProduct(product_info : ProductInfo)
+{
+    const category_info = await getCategoryData(product_info);
+
+    const client_product : ClientProductType = {
+        product_info : product_info,
+        category_info : category_info
+    }
+
+    return client_product;
+}
+
 productRouter.get("/get", async (req, res) => {
     try {
         const products : ProductInfo[] = await ProductInfo.findAll();
         const client_products : ClientProductType[] = []
         await Promise.all(
             products.map(async (product: ProductInfo) => {
-                client_products.push({product_info : product, category_info : await getCategoryData(product) });
+                client_products.push(await createClientProduct(product));
             })
         )
         res.send(client_products);
@@ -37,6 +49,65 @@ productRouter.get("/get", async (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 });
+
+productRouter.get("/get-category/:category",async (req, res) => {
+    const category = req.params.category;
+    console.log(`Got category:${category}`);
+
+    if(category === SubCategoryTypes.ShirtCategory)
+    {
+        const shirts = await ProductInfo.findAll({ where : {
+                category : [SubCategoryTypes.MenShirtCategory,SubCategoryTypes.WomenShirtCategory]
+            }})
+
+        const client_products : ClientProductType[] = []
+
+        await Promise.all(
+            shirts.map(async (shirt: ProductInfo) => {
+                client_products.push(await createClientProduct(shirt));
+            })
+        )
+
+        res.status(200).send({
+            products : client_products,
+        });
+    }
+    else if(category === SubCategoryTypes.TShirtCategory)
+    {
+        const tshirts = await ProductInfo.findAll({ where : {
+                category : [SubCategoryTypes.MenTShirtCategory,SubCategoryTypes.WomenTShirtCategory]
+            }})
+
+        const client_products : ClientProductType[] = []
+
+        await Promise.all(
+            tshirts.map(async (shirt: ProductInfo) => {
+                client_products.push(await createClientProduct(shirt));
+            })
+        )
+
+        res.status(200).send({
+            products : client_products,
+        });
+    }else
+    {
+        const products = await ProductInfo.findAll({ where: {
+                category : category
+            }})
+
+        const client_products : ClientProductType[] = []
+
+        await Promise.all(
+            products.map(async (shirt: ProductInfo) => {
+                client_products.push(await createClientProduct(shirt));
+            })
+        )
+
+        res.status(200).send({
+            products : client_products
+        });
+    }
+})
 
 productRouter.get("/get/:id", async (req, res) => {
     const { id } = req.params;
@@ -99,4 +170,3 @@ productRouter.delete("/delete/:id", async (req, res) => {
         throw new Error(`Error in deleting product with id:${id}`);
     }
 });
-

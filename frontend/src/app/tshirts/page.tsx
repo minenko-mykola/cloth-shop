@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import {Header} from "@/widgets/blocks/header";
 import {LoadingPreview} from "@/widgets/blocks/shared";
 import {Footer} from "@/widgets/blocks/footer";
@@ -13,7 +13,7 @@ export default function Home() {
     const [loaded, setLoaded] = useState(false);
 
     useEffect(() => {
-        categoryFilter.filterByCategory([SubCategoryTypes.WomenTShirtCategory,SubCategoryTypes.MenTShirtCategory])
+        categoryFilter.filterByCategory(SubCategoryTypes.TShirtCategory)
         setLoaded(true);
     },[])
 
@@ -35,4 +35,3 @@ export default function Home() {
         </>
     );
 }
-
