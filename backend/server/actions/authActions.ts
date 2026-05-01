@@ -2,12 +2,13 @@ import {User} from "../../entities/database/additional";
 import {Op} from "sequelize";
 import bcrypt from "bcrypt";
 import {UserRoles} from "../../entities/database/types/enum/additional";
+import express from "express";
 
 const rounds = Number(process.env.HASH_ROUNDS) || 12;
 
 class AuthActions
 {
-    async register(req : any,res : any)
+    async register(req: express.Request, res: express.Response)
     {
         const { login, password,first_name,last_name } = req.body;
 
@@ -55,7 +56,7 @@ class AuthActions
         }
     }
 
-    async login(req : any,res : any)
+    async login(req: express.Request, res: express.Response)
     {
         const { login, password } = req.body;
 
@@ -74,7 +75,7 @@ class AuthActions
         return res.status(201).send({ message: "Login successful!", user_id: user.id });
     }
 
-    async getById(req : any,res : any)
+    async getById(req: express.Request, res: express.Response)
     {
         const id = req.params.id;
         const user = await User.findOne({ where: { id: id } });
@@ -86,7 +87,7 @@ class AuthActions
         }
     }
 
-    async logout(req : any,res : any)
+    async logout(req: express.Request, res: express.Response)
     {
 
     }
