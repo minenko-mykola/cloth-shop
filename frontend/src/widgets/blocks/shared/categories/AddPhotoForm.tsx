@@ -1,8 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {Box, Code, FileUpload, Icon, Stack, useFileUpload} from "@chakra-ui/react";
 import {LuUpload} from "react-icons/lu";
 import {FileError} from "@zag-js/file-utils";
-import {CreateProductHookStore} from "@/widgets/blocks/shared/state-managers/hooks";
 
 export const AddPhotoForm = () => {
 
@@ -29,12 +28,10 @@ export const AddPhotoForm = () => {
 
     const accepted = fileUpload.acceptedFiles.map((file) => file.name)
     const rejected = fileUpload.rejectedFiles.map((e) => e.file.name)
-    const hook = CreateProductHookStore.hook
     let urls : string[] = []
 
     useEffect(() => {
         urls = accepted
-        hook!.setValue("photos",urls)
     },[accepted])
 
     return (

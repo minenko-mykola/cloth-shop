@@ -1,6 +1,6 @@
 "use client";
 
-import React, {useEffect} from 'react';
+import React from 'react';
 import {
     Button,
     CloseButton,
@@ -9,21 +9,12 @@ import {
     Stack
 } from "@chakra-ui/react";
 import {AddPhotoForm, CreateProductInfoForm} from "@/widgets/blocks/shared/categories";
-import {observer} from "mobx-react-lite";
-import {CreateProductHookStore} from "@/widgets/blocks/shared/state-managers/hooks";
 
-export const ProductForm = observer(() => {
-
-   const hooks = CreateProductHookStore.hook!
-
-    const onSubmit = (data: any) =>
-    {
-        alert(JSON.stringify(data));
-    }
+export const ProductForm = () => {
 
     return (
         <section>
-            <form onSubmit={hooks?.handleSubmit(onSubmit)} id="product-create-form">
+            <form id="product-create-form">
                 <Dialog.Root placement="center">
                     <Dialog.Trigger asChild>
                         <Button variant="subtle">Create</Button>
@@ -48,7 +39,7 @@ export const ProductForm = observer(() => {
                                     <Button type="submit"
                                             form="product-create-form"
                                             onClick={() => {
-                                                CreateProductHookStore.setIsSubmitted(true);
+
                                             }}
                                     >Save</Button>
                                 </Dialog.Footer>
@@ -62,4 +53,4 @@ export const ProductForm = observer(() => {
             </form>
         </section>
     )
-})
+}

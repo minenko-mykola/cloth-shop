@@ -1,30 +1,13 @@
 import {Button, CloseButton, Dialog, Portal, Stack} from "@chakra-ui/react";
 import React from 'react';
-import {CheckoutFormControl} from "@/widgets/blocks/shared/state-managers";
-import {CheckoutFormHook} from "@/widgets/blocks/shared/state-managers/hooks";
-import {observer} from "mobx-react-lite";
 
-export const CheckoutForm = observer(() => {
-
-    const hook = CheckoutFormHook.hook!;
-
-    const {register,handleSubmit} = hook;
-
-    const onSubmit = (data : any) =>
-    {
-
-    }
+export const CheckoutForm = () => {
 
     return (
         <section>
-            <form id="checkout-form" onSubmit={handleSubmit(onSubmit)}>
+            <form id="checkout-form">
                 <Dialog.Root
-                    lazyMount
-                    open={CheckoutFormControl.isOpened}
-
-                    onOpenChange={() => {
-                        CheckoutFormControl.setIsOpened(false);
-                    }}>
+                    lazyMount>
                     <Portal>
                         <Dialog.Backdrop />
                         <Dialog.Positioner>
@@ -55,4 +38,4 @@ export const CheckoutForm = observer(() => {
             </form>
         </section>
     );
-});
+};

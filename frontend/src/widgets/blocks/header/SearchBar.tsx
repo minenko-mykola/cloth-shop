@@ -1,10 +1,9 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import { FaSearch } from "react-icons/fa";
 import { Button, Input, InputGroup } from "@chakra-ui/react";
-import { observer } from "mobx-react-lite";
 import { useRouter } from "next/navigation";
 
-export const SearchBar = observer(() => {
+export const SearchBar = () => {
     const [search, setSearch] = React.useState<string>('');
     const router = useRouter();
 
@@ -30,4 +29,4 @@ export const SearchBar = observer(() => {
             />
         </InputGroup>
     );
-});
+};

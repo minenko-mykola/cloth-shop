@@ -1,34 +1,23 @@
 "use client"
 import React from 'react';
-import {observer} from "mobx-react-lite";
 import {Button, CloseButton, Dialog,Portal} from "@chakra-ui/react";
-import {
-    ErrorModalContent,
-    ErrorModalHandler
 
-} from "@/widgets/blocks/shared/state-managers";
-
-export const DebugModal = observer(() => {
+export const DebugModal = () => {
 
     return (
         <section>
             <Dialog.Root
-                lazyMount
-                open={ErrorModalHandler.open}
-
-                onOpenChange={() => {
-                    ErrorModalHandler.setOpen(false);
-                }}>
+                lazyMount>
                 <Portal>
                     <Dialog.Backdrop />
                     <Dialog.Positioner>
                         <Dialog.Content>
                             <Dialog.Header>
-                                <Dialog.Title>{ErrorModalContent.content.type}</Dialog.Title>
+                                <Dialog.Title></Dialog.Title>
                             </Dialog.Header>
                             <Dialog.Body>
                                 <p>
-                                    {ErrorModalContent.content.message}
+
                                 </p>
                             </Dialog.Body>
                             <Dialog.Footer>
@@ -45,4 +34,4 @@ export const DebugModal = observer(() => {
             </Dialog.Root>
         </section>
     );
-});
+};

@@ -1,6 +1,5 @@
 import React from 'react';
 import {Checkbox, Field, Input, Stack} from "@chakra-ui/react";
-import {observer} from "mobx-react-lite";
 import {
     HeadWearSeasonsSelect,
     HeadWearSexSelect,
@@ -9,7 +8,7 @@ import {
 } from "@/widgets/blocks/shared/selects/headwear";
 
 
-export const HeadWearInfoForm = observer(() => {
+export const HeadWearInfoForm = () => {
     return (
         <section>
            <Stack direction="column">
@@ -51,4 +50,4 @@ export const HeadWearInfoForm = observer(() => {
            </Stack>
         </section>
     );
-});
+};

@@ -1,20 +1,20 @@
 "use client";
 
-import { Provider } from "@/shared/chakra-ui/index.ts"
 import React from "react";
-import {MainLoader} from "@/widgets/blocks/shared/providers";
+import {Provider as ChakraProvider} from "@/shared/chakra-ui/provider.tsx";
 
 export default function RootLayout(props: { children: React.ReactNode }) {
     const { children } = props
     return (
-        <html suppressHydrationWarning>
+        <>
+            <html suppressHydrationWarning>
             <title>React + Next.js</title>
             <body>
-                <Provider>
-                    <MainLoader></MainLoader>
-                    {children}
-                </Provider>
+            <ChakraProvider>
+                {children}
+            </ChakraProvider>
             </body>
-        </html>
+            </html>
+        </>
     )
 }

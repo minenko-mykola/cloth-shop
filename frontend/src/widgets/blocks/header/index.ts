@@ -1,5 +1,6 @@
 export * from "./SearchBar"
 export * from "./LanguageChanger"
+export * from "./LeftMenu"
 export * from "./Header"
 export * from "./UserProfile"
 export * from "./UserProfileMenu"

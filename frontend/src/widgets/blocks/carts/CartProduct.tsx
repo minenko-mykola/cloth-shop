@@ -1,12 +1,10 @@
 "use client";
 import React, {useState} from 'react';
-import {observer} from "mobx-react-lite";
 import {ClientProductType} from "@/shared/generated/entities/database/types/enum";
 import {Button, Card, HStack, IconButton, NumberInput, Stack} from "@chakra-ui/react";
-import {CartProducts, cartTotalPrice} from "@/widgets/blocks/shared/state-managers";
 import {LuMinus, LuPlus} from "react-icons/lu";
 
-export const CartProduct = observer((product : ClientProductType) => {
+export const CartProduct = (product : ClientProductType) => {
     const [value,setValue] = useState<string>("1");
 
     return (
@@ -23,13 +21,11 @@ export const CartProduct = observer((product : ClientProductType) => {
                 <Card.Footer gap="2">
                     <Stack direction="row" width="95%" justifyContent="space-between">
                         <Button onClick={() => {
-                            cartTotalPrice.removeProduct(product,Number(value));
-                            CartProducts.removeProduct(product)
+
                         }}>Remove</Button>
                         <NumberInput.Root min={1}
                                           value={value}
                                           onValueChange={(e) => {
-                                              cartTotalPrice.updateQuantity(product,Number(e.value),Number(value))
                                               setValue(e.value)
                                           }}
                                           max={product.product_info?.quantity}
@@ -53,4 +49,4 @@ export const CartProduct = observer((product : ClientProductType) => {
             </Card.Root>
         </section>
     );
-});
+};

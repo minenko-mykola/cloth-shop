@@ -1,6 +1,7 @@
 import React from 'react';
 import {Flex, Link} from "@chakra-ui/react";
 import {SatchelIcon} from "@/shared/custom-icons";
+import {LeftMenu} from "@/widgets/blocks/header";
 
 export const DownHeader = () => {
     return (
@@ -10,6 +11,7 @@ export const DownHeader = () => {
                   bg="blue.500"
                   align="center"
             >
+                <LeftMenu></LeftMenu>
                 <Link href="/blouses">
                     <SatchelIcon></SatchelIcon>
                     Blouses

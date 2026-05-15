@@ -1,29 +1,16 @@
 "use client"
 import React from 'react';
 import {Avatar, Menu, Portal, Stack, Text} from "@chakra-ui/react";
-import {UserProfileMenuControl, UserStore} from "@/widgets/blocks/shared/state-managers";
-import {observer} from "mobx-react-lite";
 import axios from "axios";
 
-export const UserProfileMenu = observer(() => {
-
-    const first_name = UserStore.user?.first_name || "";
-    const last_name = UserStore.user?.first_name || "";
+export const UserProfileMenu = () => {
 
     return (
         <section>
-            <Menu.Root positioning={{placement : "right-end" }}
-                       onOpenChange={(isOpen) => { // Припускаємо, що Menu.Root передає новий стан
-                           UserProfileMenuControl.setOpen(isOpen.open)
-                       }}
-                       onFocusOutside={() => {
-                           UserProfileMenuControl.setOpen(false)
-                       }}
-                       open={UserProfileMenuControl.open}
-            >
+            <Menu.Root positioning={{placement : "right-end" }}>
                 <Menu.Trigger>
                     <Avatar.Root>
-                        <Avatar.Fallback name={first_name.concat(last_name)} />
+                        <Avatar.Fallback />
                         <Avatar.Image />
                     </Avatar.Root>
                 </Menu.Trigger>
@@ -34,15 +21,15 @@ export const UserProfileMenu = observer(() => {
                                 <Menu.Item value="account">
                                     <Stack direction="row">
                                         <Avatar.Root size="lg">
-                                            <Avatar.Fallback name={first_name.concat(last_name)} />
+                                            <Avatar.Fallback />
                                             <Avatar.Image />
                                         </Avatar.Root>
                                         <Stack direction="column">
                                             <Stack direction="row">
-                                                <Text>{first_name}</Text>
-                                                <Text>{last_name}</Text>
+                                                <Text></Text>
+                                                <Text></Text>
                                             </Stack>
-                                            <Text alignSelf="center">{UserStore.user?.email}</Text>
+                                            <Text alignSelf="center"></Text>
                                         </Stack>
                                     </Stack>
                                 </Menu.Item>
@@ -67,4 +54,4 @@ export const UserProfileMenu = observer(() => {
             </Menu.Root>
         </section>
     );
-});
+};

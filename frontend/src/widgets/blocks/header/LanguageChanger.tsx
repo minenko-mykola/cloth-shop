@@ -3,10 +3,8 @@
 import { Portal, Select } from "@chakra-ui/react"
 import {countries,continents} from "@/app/config/localization/countries"
 import {useTranslation} from "react-i18next";
-import {Country} from "@/widgets/blocks/shared/state-managers";
-import {observer} from "mobx-react-lite";
 
-export const LanguageChanger = observer(() => {
+export const LanguageChanger = () => {
     const [t,i18n] = useTranslation();
 
     return (
@@ -15,10 +13,6 @@ export const LanguageChanger = observer(() => {
             size="sm"
             width="320px"
             variant="subtle"
-            value={Country.country}
-            onValueChange = {(e) => {
-               Country.setCountry(e.value)
-            }}
         >
             <Select.HiddenSelect />
             <Select.Control>
@@ -48,6 +42,4 @@ export const LanguageChanger = observer(() => {
             </Portal>
         </Select.Root>
     )
-})
-
-export default LanguageChanger;
+}

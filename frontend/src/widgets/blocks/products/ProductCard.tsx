@@ -3,8 +3,6 @@
 import React from 'react';
 import {Button, Card, Image, LinkBox,Text} from "@chakra-ui/react";
 import {ClientProductType, SubCategoryTypes} from "@/shared/generated/entities/database/types/enum";
-import {observer} from "mobx-react-lite";
-import {CartProducts, cartTotalPrice, ProductViewerControl} from "@/widgets/blocks/shared/state-managers";
 import {useRouter} from "next/navigation";
 
 function renderProductProperties(product: ClientProductType)
@@ -28,12 +26,10 @@ function renderProductProperties(product: ClientProductType)
     }
 }
 
-export const ProductCard = observer((product: ClientProductType) => {
+export const ProductCard = (product: ClientProductType) => {
     const router = useRouter();
-    const button_text = CartProducts.isAdded(product) ? "Added to cart" : "Add to cart";
 
     const handleClick = () => {
-        ProductViewerControl.setProduct(product);
         router.push(`/products/view/${product.product_info.id}`);
     }
 
@@ -56,13 +52,12 @@ export const ProductCard = observer((product: ClientProductType) => {
                     </Card.Body>
                     <Card.Footer justifyContent="flex-end">
                         <Button variant="solid" onClick={(e) => {
-                            CartProducts.addProduct(product);
-                            cartTotalPrice.addProduct(product)
+
                             e.stopPropagation()
-                        }} disabled={CartProducts.isAdded(product)}>{button_text}</Button>
+                        }} ></Button>
                     </Card.Footer>
                 </Card.Root>
             </LinkBox>
         </section>
     );
-});
+};

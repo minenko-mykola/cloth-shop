@@ -1,59 +1,15 @@
 "use client"
-import React, {useMemo, useState} from 'react';
-import {observer} from "mobx-react-lite";
+import React from 'react';
 import {Button, CloseButton, Dialog, Field, Input, Portal, Stack} from "@chakra-ui/react";
-import {UserRegisterFormHook} from "@/widgets/blocks/shared/state-managers/hooks";
-import {AuthenticationFormHandler, UserFormControl, UserStore} from "@/widgets/blocks/shared/state-managers";
-import {strengthOptions} from "@/shared/data";
-import { passwordStrength } from "check-password-strength"
-import {PasswordInput, PasswordStrengthMeter} from "@/shared/chakra-ui/password-input.tsx";
-import {AuthenticationSwitcherType} from "@/shared/types";
-import axios from "axios";
+import {PasswordInput} from "@/shared/chakra-ui/password-input";
 
-export const UserRegisterForm = observer(() => {
-
-    const hook = UserRegisterFormHook.hook!;
-    const [password, setPassword] = useState<string>("");
-    const {register,watch,trigger,handleSubmit,setValue} = hook;
-
-    const strength = useMemo(() => {
-        if(!password) return 0;
-        const result = passwordStrength(password,strengthOptions);
-        return result.id;
-    },[password])
-
-    const onSubmit = (data : any) => {
-        axios.post("http://localhost:5000/api/user/register", data).then(res => {
-            axios.get(`http://localhost:5000/api/user/get/${res.data.user_id}`).
-            then(g_res => {
-                UserStore.setUser(JSON.parse(JSON.stringify(g_res.data.user)));
-                UserFormControl.setOpen(false);
-            }).catch(g_err => console.log(g_err));
-        }).catch(err => {
-            console.log(err.response.data);
-        })
-    }
-
-    const validatePassword = (value : string): boolean =>
-    {
-        if (value && passwordStrength(value,strengthOptions).id >= 1)
-        {
-            return true;
-        }else{
-            return false;
-        }
-    }
+export const UserRegisterForm = () => {
 
     return (
         <section>
-            <form id="user-register-form" onSubmit={handleSubmit(onSubmit)}>
+            <form id="user-register-form">
                 <Dialog.Root
-                    lazyMount
-                    open={UserFormControl.open}
-
-                    onOpenChange={() => {
-                        UserFormControl.setOpen(false);
-                    }}>
+                    lazyMount>
                     <Portal>
                         <Dialog.Backdrop />
                         <Dialog.Positioner>
@@ -69,20 +25,14 @@ export const UserRegisterForm = observer(() => {
                                                     First Name <Field.RequiredIndicator />
                                                 </Field.Label>
                                                 <Input placeholder="First name"
-                                                       variant="outline"
-                                                       {...register("first_name",{
-                                                           required : true
-                                                       })}></Input>
+                                                       variant="outline"></Input>
                                             </Field.Root>
                                             <Field.Root required>
                                                 <Field.Label>
                                                     Last Name <Field.RequiredIndicator />
                                                 </Field.Label>
                                                 <Input placeholder="Last name"
-                                                       variant="outline"
-                                                       {...register("last_name",{
-                                                           required : true
-                                                       })}></Input>
+                                                       variant="outline"></Input>
                                             </Field.Root>
                                         </Stack>
 
@@ -91,29 +41,19 @@ export const UserRegisterForm = observer(() => {
                                                 Login <Field.RequiredIndicator />
                                             </Field.Label>
                                             <Input placeholder="Login"
-                                                   variant="outline"
-                                                   {...register("login")} />
+                                                   variant="outline">
+                                            </Input>
                                         </Field.Root>
 
                                         <Field.Root required>
                                             <Stack width="100%" gap={3}>
                                                 <Field.Label>Password</Field.Label>
-                                                <PasswordInput {...register("password",{
-                                                    required : true,
-                                                    validate : validatePassword
-                                                })}
-                                                               value={password}
-                                                               onChange={(e) =>
-                                                                   setPassword(e.currentTarget.value)}
-                                                               placeholder="Enter your password"
-                                                />
-                                                <PasswordStrengthMeter value={strength} />
+                                                <PasswordInput></PasswordInput>
                                             </Stack>
                                             <Field.ErrorText>Password strength must be high</Field.ErrorText>
                                         </Field.Root>
                                         <Stack>
                                             <Button variant="plain" onClick={() => {
-                                                AuthenticationFormHandler.setStatus(AuthenticationSwitcherType.Login);
                                             }}>Already have account?Login</Button>
                                         </Stack>
                                     </section>
@@ -134,4 +74,4 @@ export const UserRegisterForm = observer(() => {
             </form>
         </section>
     );
-});
+};

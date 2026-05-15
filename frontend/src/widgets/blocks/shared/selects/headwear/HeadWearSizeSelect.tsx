@@ -1,18 +1,14 @@
 "use client";
+import { headwear_sizes } from "@/shared/data/headwear";
 import { Select} from "@chakra-ui/react";
 import React from "react";
-import {observer} from "mobx-react-lite";
-import {HeadWearSize} from "@/widgets/blocks/shared/state-managers";
-import {headwear_sizes} from "@/shared/data/headwear";
 
-export const HeadWearSizeSelect =  observer(() =>
+export const HeadWearSizeSelect = () =>
 {
 
     return (
         <section>
-            <Select.Root required collection={headwear_sizes} size="sm" value={HeadWearSize.size} onValueChange={(e) => {
-                HeadWearSize.setSize(e.value);
-            }}>
+            <Select.Root required collection={headwear_sizes} size="sm">
                 <Select.HiddenSelect />
                 <Select.Label>Size</Select.Label>
                 <Select.Control>
@@ -35,4 +31,4 @@ export const HeadWearSizeSelect =  observer(() =>
             </Select.Root>
         </section>
     )
-})
+}

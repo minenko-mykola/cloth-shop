@@ -1,11 +1,9 @@
 "use client";
 import React from 'react';
 import {Button, CloseButton, Drawer, Portal} from "@chakra-ui/react";
-import {CartContent} from "@/widgets/blocks/carts/CartContent.tsx";
-import {observer} from "mobx-react-lite";
-import {CheckoutFormControl} from "@/widgets/blocks/shared/state-managers";
+import {CartContent} from "@/widgets/blocks/carts";
 
-export const CartDrawer = observer(() => {
+export const CartDrawer = () => {
     const [open, setOpen] = React.useState(false);
 
     return (
@@ -34,7 +32,7 @@ export const CartDrawer = observer(() => {
                                         setOpen(false)
                                     }} >Cancel</Button>
                                     <Button onClick={() => {
-                                       CheckoutFormControl.setIsOpened(true)
+
                                     }}>
                                         Checkout</Button>
                                 </Drawer.Footer>
@@ -48,4 +46,4 @@ export const CartDrawer = observer(() => {
             </section>
         </>
     );
-});
+};
