@@ -1,7 +1,7 @@
 import {BelongsTo, Column, DataType, ForeignKey, HasMany, Model, Table} from "sequelize-typescript";
 import {InferAttributes, InferCreationAttributes} from "sequelize";
-import {User} from "./index.ts";
-import {CartProduct} from "./CartProduct.ts";
+import {User} from "./User";
+import {CartProduct} from "./CartProduct";
 
 @Table({
     tableName: "carts",

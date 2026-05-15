@@ -1,7 +1,7 @@
 import {Column, DataType, HasMany, HasOne, Model, Table} from "sequelize-typescript";
 import {InferAttributes, InferCreationAttributes} from "sequelize";
 import {UserRoles} from "../types/enum/additional";
-import {Cart, ProductInfo,Photo} from "./index.ts";
+import {Cart, ProductInfo,Photo} from "./index";
 
 @Table({
     tableName: "users",

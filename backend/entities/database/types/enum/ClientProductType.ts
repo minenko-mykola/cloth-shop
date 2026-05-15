@@ -1,4 +1,4 @@
-import {ProductSubCategoriesType} from "./index.ts";
+import {ProductSubCategoriesType} from "./index";
 import {ProductInfo} from "../../additional";
 
 export type ClientProductType = {

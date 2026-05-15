@@ -1,2 +1,2 @@
-export * from "./ProductAvailability.ts"
-export * from "./UserRoles.ts"
+export * from "./ProductAvailability"
+export * from "./UserRoles"

@@ -1,8 +1,12 @@
-FROM node:20
+FROM node:22-alpine
+
 WORKDIR /app
-# Копіюємо файли з ПОВТОЧНОЇ папки (яка буде вказана в context)
+
 COPY package*.json ./
 RUN npm install
+
 COPY . .
-EXPOSE 5000
-CMD ["npm", "run", "start"]
+
+RUN npm run build
+
+CMD ["npm","run", "start:server"]

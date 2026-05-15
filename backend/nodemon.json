@@ -1,7 +1,0 @@
-{
-  "watch": ["../backend"],
-  "ext": "js,ts",
-  "exec": "tsc --noEmit && tsx server/index.ts",
-  "legacyWatch": true,
-  "pollingInterval": 100
-}

@@ -11,9 +11,9 @@ const options = {
     secretOrKey: process.env.ACCESS_SECRET_KEY
 }
 
-export const passport = (_passport) =>
+export const passport = (_passport : any) =>
 {
-    _passport.use(new JwtStrategy(options, async (payload, done) => {
+    _passport.use(new JwtStrategy(options, async (payload : any , done  : any) => {
 
         try
         {
