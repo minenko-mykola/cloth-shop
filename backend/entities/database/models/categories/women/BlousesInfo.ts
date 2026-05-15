@@ -1,4 +1,4 @@
-import { BelongsTo, Column, ForeignKey, HasMany, Model, Table } from "sequelize-typescript";
+import { BelongsTo, Column, ForeignKey, Model, Table } from "sequelize-typescript";
 import { DataType } from "sequelize-typescript";
 import {
     BlouseBack,

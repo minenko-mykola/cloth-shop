@@ -4,9 +4,9 @@ import {GlovesInfo, HeadWearsInfo} from "../models/categories/accessories";
 import {MenShirtsInfo, MenTShirtsInfo} from "../models/categories/men";
 import {BlousesInfo, WomenShirtsInfo, WomenTShirtsInfo} from "../models/categories/women";
 import {SubCategoryTypes} from "../types/enum";
-import {Product} from "./Product.ts";
-import {User} from "./User.ts";
-import {Photo} from "./Photo.ts";
+import {Product} from "./Product";
+import {User} from "./User";
+import {Photo} from "./Photo";
 
 @Table({
     tableName: "products-infos",

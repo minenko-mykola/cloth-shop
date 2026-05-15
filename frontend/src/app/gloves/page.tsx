@@ -6,14 +6,11 @@ import {LoadingPreview} from "@/widgets/blocks/shared";
 import {Flex} from "@chakra-ui/react";
 import {Footer} from "@/widgets/blocks/footer";
 import {ProductSection} from "@/widgets/blocks/products";
-import {categoryFilter} from "@/features/products/categoryFilter.ts";
-import {SubCategoryTypes} from "@/shared/generated/entities/database/types/enum";
 
 export default function Home() {
     const [loaded, setLoaded] = useState(false);
 
     useEffect(() => {
-        categoryFilter.filterByCategory(SubCategoryTypes.GlovesCategory)
         setLoaded(true);
     },[])
 

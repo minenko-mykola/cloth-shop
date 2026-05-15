@@ -1,6 +1,6 @@
 import {BelongsTo, Column, DataType, ForeignKey, Model, Table} from "sequelize-typescript";
 import {InferAttributes, InferCreationAttributes} from "sequelize";
-import {Cart, Product, User} from "./index.ts";
+import {Cart, Product} from "./index";
 
 @Table({
     tableName: "cart-products",

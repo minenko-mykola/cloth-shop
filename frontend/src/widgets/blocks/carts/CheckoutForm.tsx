@@ -3,8 +3,6 @@ import React from 'react';
 import {CheckoutFormControl} from "@/widgets/blocks/shared/state-managers";
 import {CheckoutFormHook} from "@/widgets/blocks/shared/state-managers/hooks";
 import {observer} from "mobx-react-lite";
-import {cartController} from "@/features/carts";
-import {debugHandler} from "@/features/shared";
 
 export const CheckoutForm = observer(() => {
 
@@ -14,12 +12,7 @@ export const CheckoutForm = observer(() => {
 
     const onSubmit = (data : any) =>
     {
-        cartController.checkout().then(result => {
-            CheckoutFormControl.setIsOpened(false);
 
-        }).catch(error => {
-            debugHandler.throwError(error);
-        })
     }
 
     return (

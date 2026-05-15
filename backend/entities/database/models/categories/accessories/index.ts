@@ -1,2 +1,2 @@
-export * from "./GlovesInfo.ts"
-export * from "./HeadWearsInfo.ts"
+export * from "./GlovesInfo"
+export * from "./HeadWearsInfo"

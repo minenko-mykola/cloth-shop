@@ -1,6 +1,6 @@
 import {Column, DataType, HasOne, Model, Table} from "sequelize-typescript";
 import {InferAttributes, InferCreationAttributes} from "sequelize";
-import {ProductInfo} from "./index.ts";
+import {ProductInfo} from "./index";
 
 @Table({
     tableName: "products",

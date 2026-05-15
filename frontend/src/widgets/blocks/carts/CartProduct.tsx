@@ -6,7 +6,7 @@ import {Button, Card, HStack, IconButton, NumberInput, Stack} from "@chakra-ui/r
 import {CartProducts, cartTotalPrice} from "@/widgets/blocks/shared/state-managers";
 import {LuMinus, LuPlus} from "react-icons/lu";
 
-const CartProduct = observer((product : ClientProductType) => {
+export const CartProduct = observer((product : ClientProductType) => {
     const [value,setValue] = useState<string>("1");
 
     return (
@@ -54,5 +54,3 @@ const CartProduct = observer((product : ClientProductType) => {
         </section>
     );
 });
-
-export default CartProduct;

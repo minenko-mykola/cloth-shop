@@ -1,3 +1,3 @@
-export * from "./BlousesInfo.ts"
-export * from "./WomenShirtsInfo.ts"
-export * from "./WomenTShirtsInfo.ts"
+export * from "./BlousesInfo"
+export * from "./WomenShirtsInfo"
+export * from "./WomenTShirtsInfo"

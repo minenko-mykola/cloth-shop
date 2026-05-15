@@ -1,2 +1,2 @@
-export * from "./MenShirtsInfo.ts"
-export * from "./MenTShirtsInfo.ts"
+export * from "./MenShirtsInfo"
+export * from "./MenTShirtsInfo"

@@ -1,6 +1,6 @@
-import {BelongsTo, Column, DataType, ForeignKey, HasOne, Model, Table} from "sequelize-typescript";
+import {BelongsTo, Column, DataType, ForeignKey, Model, Table} from "sequelize-typescript";
 import {InferAttributes, InferCreationAttributes} from "sequelize";
-import {ProductInfo, User} from "./index.ts";
+import {ProductInfo, User} from "./index";
 
 @Table({
     tableName: "photos",
