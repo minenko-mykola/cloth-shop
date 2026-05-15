@@ -80,7 +80,7 @@ cd cloth-shop
     - Frontend:
 
    ```bash
-   cd frontend
+   cd frontend.yml
    ```
 
     ```bash
@@ -96,15 +96,23 @@ cd cloth-shop
     ```bash
     npm install
     ```
+
+   - Analytics Service:
+
+   ```bash
+    cd services
+   ```
+
+   ```bash
+   npm install
+   ```
 ---
 
 ## Usage
 
-1. Starting Backend:
+1. Starting all:
     ```bash
     docker-compose up -d --build
     ```
-2. Starting Frontend:
-    ```bash
-    npm run dev      
-    ```
+
+2.Go to [http://localhost](http://localhost)

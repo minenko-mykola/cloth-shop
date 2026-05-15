@@ -2,9 +2,15 @@
 frontend/node_modules
 frontend/.next
 backend/node_modules
+services/analytics-service/node_modules
+services/notification-service/node_modules
+services/search-indexer/node_modules
+services/shop-api/node_modules
 backend/photos
 backend/tsconfig.tsbuildinfo
 
 frontend/eslint.config.mjs
 frontend/next-env.d.ts
-frontend/next.config.ts
+Docker/infrastructure/kafka1
+Docker/infrastructure/kafka2
+Docker/infrastructure/kafka3
