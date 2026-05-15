@@ -39,7 +39,7 @@ function copyDir(src, dest) {
 try {
     removeDir(targetDir);   // спочатку зносимо стару папку
     copyDir(sourceDir, targetDir); // потім копіюємо нову
-    console.log("Entities synced from backend to frontend");
+    console.log("Entities synced from backend to frontend.yml");
 } catch (err) {
     console.error("Sync failed:", err);
     process.exit(1);

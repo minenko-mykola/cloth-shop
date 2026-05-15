@@ -3,7 +3,7 @@ import React from 'react';
 import {EmptyState, ScrollArea, Stack, Text, VStack} from "@chakra-ui/react";
 import {CartProducts, cartTotalPrice} from "@/widgets/blocks/shared/state-managers";
 import {observer} from "mobx-react-lite";
-import CartProduct from "@/widgets/blocks/carts/CartProduct.tsx";
+import {CartProduct} from "@/widgets/blocks/carts";
 import {LuShoppingCart} from "react-icons/lu";
 
 export const CartContent = observer(() => {

@@ -4,8 +4,6 @@ import React, {useEffect, useState} from "react";
 import {Header} from "@/widgets/blocks/header";
 import {LoadingPreview} from "@/widgets/blocks/shared";
 import {Footer} from "@/widgets/blocks/footer";
-import {categoryFilter} from "@/features/products/categoryFilter.ts";
-import {SubCategoryTypes} from "@/shared/generated/entities/database/types/enum";
 import {Flex} from "@chakra-ui/react";
 import {ProductSection} from "@/widgets/blocks/products";
 
@@ -13,7 +11,6 @@ export default function Home() {
     const [loaded, setLoaded] = useState(false);
 
     useEffect(() => {
-        categoryFilter.filterByCategory(SubCategoryTypes.TShirtCategory)
         setLoaded(true);
     },[])
 
@@ -35,4 +32,3 @@ export default function Home() {
         </>
     );
 }
-

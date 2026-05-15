@@ -3,7 +3,6 @@ import React from 'react';
 import {Avatar, Menu, Portal, Stack, Text} from "@chakra-ui/react";
 import {UserProfileMenuControl, UserStore} from "@/widgets/blocks/shared/state-managers";
 import {observer} from "mobx-react-lite";
-import {userController} from "@/features/user";
 import axios from "axios";
 
 export const UserProfileMenu = observer(() => {
@@ -59,7 +58,7 @@ export const UserProfileMenu = observer(() => {
                                 })
                             }}>Dashboard</Menu.Item>
                             <Menu.Item value="logout" onSelect={() => {
-                                userController.logout()
+
                             }}
                             >Logout</Menu.Item>
                         </Menu.Content>

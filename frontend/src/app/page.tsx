@@ -6,17 +6,12 @@ import {Header} from "@/widgets/blocks/header";
 import {LoadingPreview} from "@/widgets/blocks/shared";
 import {Footer, PaginationSection} from "@/widgets/blocks/footer";
 import {ProductSection} from "@/widgets/blocks/products";
-import {productFetcher} from "@/features/products";
-import {debugHandler} from "@/features/shared";
 
 export default function Home() {
     const [hasLoaded, setHasLoaded] = useState(false);
 
     useEffect(() => {
-        productFetcher.getAllProducts().catch(error => {
-            console.error(`[Product Fetcher] Error: ${error}]`);
-            debugHandler.throwError(`[Product Fetcher] Error: ${error}]`)
-        })
+
 
        setHasLoaded(true)
     }, []);
