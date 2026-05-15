@@ -1,5 +1,0 @@
-[mysqld]
-bind-address = 0.0.0.0            # Слухає на всіх IP-адресах
-port = 3306                       # Стандартний порт MySQL
-sql_mode = NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES  # SQL-режим
-# Можна додавати інші налаштування
