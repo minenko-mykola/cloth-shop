@@ -1,0 +1,41 @@
+services:
+
+  espocrm:
+    image: espocrm/espocrm:latest
+
+    restart: always
+
+    environment:
+      ESPOCRM_DATABASE_HOST: espocrm-db
+      ESPOCRM_DATABASE_USER: root
+      ESPOCRM_DATABASE_PASSWORD: root
+      ESPOCRM_DATABASE_NAME: espocrm_db
+
+      ESPOCRM_ADMIN_USERNAME: admin
+      ESPOCRM_ADMIN_PASSWORD: admin
+
+      # Timezone + localization
+      TZ: Europe/Kyiv
+      ESPOCRM_LANGUAGE: uk_UA
+      ESPOCRM_CONFIG_DEFAULT_CURRENCY: UAH
+      ESPOCRM_CONFIG_DATE_FORMAT: DD.MM.YYYY
+      ESPOCRM_CONFIG_TIME_FORMAT: HH:mm
+
+    volumes:
+      - espocrm_files:/var/www/html
+
+    expose:
+      - "80"
+
+    networks:
+      - backend-network
+
+
+volumes:
+  espocrm_files:
+    name: espocrm-files
+
+
+networks:
+  backend-network:
+    driver: bridge

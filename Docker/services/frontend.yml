@@ -1,0 +1,42 @@
+services:
+
+  frontend:
+    build:
+      context: ../../frontend
+      dockerfile: Dockerfile
+
+    restart: always
+
+    environment:
+      # API доступ з браузера (через NGINX буде /api)
+      NEXT_PUBLIC_API_URL: http://localhost/api
+
+      # внутрішній URL для SSR (Docker network)
+      BACKEND_URL: http://backend:5000
+
+      WATCHPACK_POLLING: "true"
+
+    expose:
+      - "3000"
+
+    networks:
+      - frontend-network
+
+    develop:
+      watch:
+        # 1. Слідкуємо за package.json для повної перезбірки (якщо додали новий npm-пакет)
+        - path: ../../frontend/package.json
+          action: rebuild
+
+        # 2. Слідкуємо за ВСІЄЇ папкою frontend для швидкої синхронізації коду
+        - path: ../../frontend
+          target: /app                # копіюємо в корінь додатка в контейнері
+          action: sync
+          ignore:
+            - node_modules/           # шлях вказується ВІДНОСНО папки 'path'
+            - .next/                  # шлях вказується ВІДНОСНО папки 'path'
+
+
+networks:
+  frontend-network:
+    driver: bridge

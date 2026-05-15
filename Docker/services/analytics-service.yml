@@ -1,0 +1,57 @@
+services:
+
+  analytics-service:
+    build:
+      context: ../../services/analytics-service
+      dockerfile: Dockerfile
+
+    restart: always
+
+    environment:
+      NODE_ENV: production
+
+      KAFKA_BROKERS: kafka:9092
+
+      ELASTICSEARCH_URL: http://elasticsearch:9200
+
+      REDIS_URL: redis://redis:6379
+
+      TZ: Europe/Kyiv
+
+    expose:
+      - "6000"
+
+    depends_on:
+      kafka1:
+        condition: service_started
+      kafka2:
+        condition: service_started
+      kafka3:
+        condition: service_started
+
+      elasticsearch:
+        condition: service_healthy
+
+      redis:
+        condition: service_healthy
+
+    networks:
+      - backend-network
+
+    develop:
+      watch:
+        # 1. Слідкуємо за package.json для повної перезбірки (якщо додали новий npm-пакет)
+        - path: ../../services/analytics-service/package.json
+          action: rebuild
+
+        # 2. Слідкуємо за ВСІЄЇ папкою analytics-service для швидкої синхронізації коду
+        - path: ../../services/analytics-service/
+          target: /app                # копіюємо в корінь додатка в контейнері
+          action: sync
+          ignore:
+            - node_modules/           # шлях вказується ВІДНОСНО папки 'path'
+
+
+networks:
+  backend-network:
+    driver: bridge

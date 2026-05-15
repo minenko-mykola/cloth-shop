@@ -1,0 +1,32 @@
+services:
+  nginx:
+    image: nginx:alpine
+    container_name: shop-nginx
+    restart: always
+
+    ports:
+      - "80:80"
+
+    volumes:
+      - ../nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ../nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+
+    networks:
+      - frontend-network
+      - backend-network
+
+    depends_on:
+      frontend:
+        condition: service_started
+      backend:
+        condition: service_started
+
+      kibana:
+        condition: service_healthy
+
+networks:
+  frontend-network:
+    driver: bridge
+
+  backend-network:
+    driver: bridge

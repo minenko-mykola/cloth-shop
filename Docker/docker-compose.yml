@@ -1,0 +1,23 @@
+name: cloth-shop-project
+
+include:
+  - path: infrastructure/mysqls.yml
+  - path: infrastructure/redis.yml
+  - path: infrastructure/elk.yml
+  - path: infrastructure/kafka.yml
+  - path: services/backend.yml
+  - path: services/frontend.yml
+  - path: services/espocrm.yml
+  - path: services/nginx.yml
+  - path: services/analytics-service.yml
+  - path: services/notification-service.yml
+  - path: services/search-indexer.yml
+  - path: services/shop-api.yml
+  - path: services/ofelia.yml
+
+networks:
+  frontend-network:
+    driver: bridge
+
+  backend-network:
+    driver: bridge
