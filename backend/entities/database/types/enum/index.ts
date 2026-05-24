@@ -1,5 +1,0 @@
-export * from "./GlovesSize"
-export * from "./CategoryTypes"
-export * from "./SubCategoryTypes"
-export * from "./ProductSubCategoriesType"
-export * from "./ClientProductType"

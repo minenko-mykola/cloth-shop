@@ -1,6 +1,0 @@
-export * from "./ProductInfo"
-export * from "./Product"
-export * from "./CartProduct"
-export * from "./Cart"
-export * from "./User"
-export * from "./Photo"
