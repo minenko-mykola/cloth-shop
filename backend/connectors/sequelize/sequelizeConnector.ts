@@ -1,6 +1,6 @@
 import { Sequelize } from "sequelize-typescript";
 import dotenv from "dotenv";
-import * as Models from "../../new_entities/models"
+import * as Models from "../../entities/sequelize"
 
 dotenv.config({ path: "config/envs/.env.mysql" , override : false });
 
