@@ -8,20 +8,20 @@ services:
     ports:
       - "6379:6379"
 
-    command: ["redis-server", "--requirepass", "root"]
+    command: ["redis-server", "--requirepass","your_secure_password"]
 
     volumes:
       - redis_data:/data
 
-    networks:
-      - backend-network
-
     healthcheck:
-      test: ["CMD", "redis-cli", "-a", "root", "ping"]
+      test: [ "CMD", "redis-cli", "ping" ]
       interval: 10s
       timeout: 5s
-      retries: 5
-      start_period: 60s
+      retries: 10
+      start_period: 120s
+
+    networks:
+      - backend-network
 
 
   redis-insight:

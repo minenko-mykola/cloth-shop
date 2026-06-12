@@ -1,19 +1,22 @@
 name: cloth-shop-project
 
 include:
-  - path: infrastructure/mysqls.yml
+  - path: infrastructure/cloth-shop-db.yml
+  - path: infrastructure/espocrm-db.yml
   - path: infrastructure/redis.yml
   - path: infrastructure/elk.yml
   - path: infrastructure/kafka.yml
-  - path: services/backend.yml
+  - path: services/gateway.yml
   - path: services/frontend.yml
   - path: services/espocrm.yml
   - path: services/nginx.yml
   - path: services/analytics-service.yml
   - path: services/notification-service.yml
   - path: services/search-indexer.yml
-  - path: services/shop-api.yml
-  - path: services/ofelia.yml
+  - path: services/products-service.yml
+#  - path: services/ofelia.yml
+
+  - path: infrastructure/clickhouse/clickhouse-cluster.yml
 
 networks:
   frontend-network:

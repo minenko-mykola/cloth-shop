@@ -1,6 +1,6 @@
 services:
 
-  backend:
+  gateway:
     build:
       context: ../../backend
       dockerfile: Dockerfile
@@ -32,15 +32,17 @@ services:
     develop:
       watch:
         # 1. Слідкуємо за package.json для повної перезбірки (якщо додали новий npm-пакет)
-        - path: ../../backend/package.json
-          action: rebuild
-
-        # 2. Слідкуємо за ВСІЄЇ папкою backend для швидкої синхронізації коду
         - path: ../../backend/
-          target: /app                # копіюємо в корінь додатка в контейнері
-          action: sync
+          action: rebuild
           ignore:
             - node_modules/           # шлях вказується ВІДНОСНО папки 'path'
+
+#        # 2. Слідкуємо за ВСІЄЇ папкою backend для швидкої синхронізації коду
+#        - path: ../../backend/
+#          target: /app                # копіюємо в корінь додатка в контейнері
+#          action: rebuild
+#          ignore:
+#            - node_modules/           # шлях вказується ВІДНОСНО папки 'path'
 
 
 networks:

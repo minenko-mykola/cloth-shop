@@ -26,8 +26,6 @@ services:
         condition: service_started
       kafka3:
         condition: service_started
-
-
       redis:
         condition: service_healthy
 
@@ -37,15 +35,17 @@ services:
     develop:
       watch:
         # 1. Слідкуємо за package.json для повної перезбірки (якщо додали новий npm-пакет)
-        - path: ../../services/notification-service/package.json
-          action: rebuild
-
-        # 2. Слідкуємо за ВСІЄЇ папкою notification-service для швидкої синхронізації коду
         - path: ../../services/notification-service/
-          target: /app                # копіюємо в корінь додатка в контейнері
-          action: sync
+          action: rebuild
           ignore:
             - node_modules/           # шлях вказується ВІДНОСНО папки 'path'
+
+#        # 2. Слідкуємо за ВСІЄЇ папкою notification-service для швидкої синхронізації коду
+#        - path: ../../services/notification-service/
+#          target: /app                # копіюємо в корінь додатка в контейнері
+#          action: rebuild
+#          ignore:
+#            - node_modules/           # шлях вказується ВІДНОСНО папки 'path'
 
 
 

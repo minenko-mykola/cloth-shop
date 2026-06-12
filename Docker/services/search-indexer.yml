@@ -41,15 +41,17 @@ services:
     develop:
       watch:
         # 1. Слідкуємо за package.json для повної перезбірки (якщо додали новий npm-пакет)
-        - path: ../../services/search-indexer/package.json
-          action: rebuild
-
-        # 2. Слідкуємо за ВСІЄЇ папкою search-indexer для швидкої синхронізації коду
         - path: ../../services/search-indexer/
-          target: /app                # копіюємо в корінь додатка в контейнері
-          action: sync
+          action: rebuild
           ignore:
-            - node_modules/           # шлях вказується ВІДНОСНО папки 'path'
+              - node_modules/
+
+#        # 2. Слідкуємо за ВСІЄЇ папкою search-indexer для швидкої синхронізації коду
+#        - path: ../../services/search-indexer/
+#          target: /app                # копіюємо в корінь додатка в контейнері
+#          action: rebuild
+#          ignore:
+#            - node_modules/           # шлях вказується ВІДНОСНО папки 'path'
 
 
 

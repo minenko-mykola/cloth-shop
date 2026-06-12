@@ -9,5 +9,3 @@ services:
       - ../ofelia/ofelia.conf:/etc/ofelia.conf:ro
     networks:
       - backend-network
-    depends_on:
-      - shop-api
