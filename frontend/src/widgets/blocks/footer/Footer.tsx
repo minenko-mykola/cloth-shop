@@ -20,8 +20,8 @@ export const Footer = () => {
                 <Separator orientation="horizontal" />
                 <section>
                     <Flex align="center"pt="0.5%" pb="0.5%" justifyContent="space-between" direction="row" >
-                        <Link href="/credits" ml="14%">Credits page</Link>
-                        <Heading color="silver" size="sm" fontWeight="normal" mr="14%">&copy;2025 - 2025 [name]</Heading>
+                        <Link href="/credits">Credits page</Link>
+                        <Heading color="silver" size="sm" fontWeight="normal">&copy;2025 - 2025 [name]</Heading>
                     </Flex>
                 </section>
             </section>

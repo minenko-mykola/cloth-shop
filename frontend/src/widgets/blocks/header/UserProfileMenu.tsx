@@ -9,7 +9,7 @@ export const UserProfileMenu = () => {
         <section>
             <Menu.Root positioning={{placement : "right-end" }}>
                 <Menu.Trigger>
-                    <Avatar.Root>
+                    <Avatar.Root size="xl">
                         <Avatar.Fallback />
                         <Avatar.Image />
                     </Avatar.Root>

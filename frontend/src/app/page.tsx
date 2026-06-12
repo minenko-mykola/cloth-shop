@@ -1,7 +1,7 @@
 "use client";
 
 import React, {useEffect, useState} from "react";
-import {Flex} from "@chakra-ui/react";
+import {Flex, useDrawer} from "@chakra-ui/react";
 import {Header} from "@/widgets/blocks/header";
 import {LoadingPreview} from "@/widgets/blocks/shared";
 import {Footer, PaginationSection} from "@/widgets/blocks/footer";
@@ -10,8 +10,9 @@ import {ProductSection} from "@/widgets/blocks/products";
 export default function Home() {
     const [hasLoaded, setHasLoaded] = useState(false);
 
-    useEffect(() => {
+    useDrawer()
 
+    useEffect(() => {
 
        setHasLoaded(true)
     }, []);

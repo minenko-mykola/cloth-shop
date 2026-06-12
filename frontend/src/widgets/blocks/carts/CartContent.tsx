@@ -1,9 +1,10 @@
 "use client";
 import React from 'react';
-import {EmptyState, ScrollArea, Stack, Text, VStack} from "@chakra-ui/react";
+import {Button, EmptyState, ScrollArea, Stack, Text, VStack} from "@chakra-ui/react";
 import {LuShoppingCart} from "react-icons/lu";
 
 export const CartContent = () => {
+
 
     return (
         <section>

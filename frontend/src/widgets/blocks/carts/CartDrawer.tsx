@@ -1,7 +1,8 @@
 "use client";
 import React from 'react';
-import {Button, CloseButton, Drawer, Portal} from "@chakra-ui/react";
+import {Button, CloseButton, Drawer, Image, Portal} from "@chakra-ui/react";
 import {CartContent} from "@/widgets/blocks/carts";
+import {FaShoppingCart} from "react-icons/fa";
 
 export const CartDrawer = () => {
     const [open, setOpen] = React.useState(false);
@@ -13,8 +14,8 @@ export const CartDrawer = () => {
                     setOpen(e.open);
                 }} size="sm">
                     <Drawer.Trigger asChild>
-                        <Button variant="outline" size="sm">
-                            Open Cart
+                        <Button variant="ghost" size="xl">
+                            <FaShoppingCart />
                         </Button>
                     </Drawer.Trigger>
                     <Portal>

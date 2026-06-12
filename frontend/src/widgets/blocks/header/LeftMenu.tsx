@@ -1,14 +1,15 @@
 "use client";
-import {Button, CloseButton, Drawer, Portal} from "@chakra-ui/react";
+import {Box, Button, CloseButton, Drawer,Text, Portal, VStack} from "@chakra-ui/react";
 import React from 'react';
+import {GiHamburgerMenu} from "react-icons/gi";
 
 export const LeftMenu = () => {
     return (
         <section>
             <Drawer.Root placement="start">
                 <Drawer.Trigger asChild>
-                    <Button variant="subtle" size="sm">
-                        Open Drawer
+                    <Button variant="ghost" size="xl">
+                        <GiHamburgerMenu />
                     </Button>
                 </Drawer.Trigger>
                 <Portal>
@@ -16,7 +17,7 @@ export const LeftMenu = () => {
                     <Drawer.Positioner>
                         <Drawer.Content>
                             <Drawer.Header>
-                                <Drawer.Title>Drawer Title</Drawer.Title>
+                                <Drawer.Title>Menu</Drawer.Title>
                             </Drawer.Header>
                             <Drawer.Body>
 
