@@ -3,13 +3,18 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import {sequelize} from "../connectors/sequelize";
+import passport from "passport";
+import path from "node:path";
 
 dotenv.config({ path: "config/envs/.env.backend", override: false });
 
 const app = express();
 
 app.use(express.json());
-//app.use("/uploads/photos", express.static(path.join(__dirname, "../photos")));
+app.use(passport.initialize())
+app.use(passport.session())
+
+app.use("/uploads/photos", express.static(path.join(__dirname, "../photos")));
 app.use(cors());
 
 async function start()
@@ -17,9 +22,7 @@ async function start()
     try
     {
         await sequelize.authenticate()
-        await sequelize.sync({
-            force : true
-        })
+        await sequelize.sync()
 
         console.log(`Synchronized!!!`)
     }

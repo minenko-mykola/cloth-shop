@@ -27,7 +27,7 @@ export class ShirtModels extends Model<InferAttributes<ShirtModels>,InferCreatio
     @ForeignKey(() => ShirtCollars)
     @Column({
         type : DataType.CHAR(36),
-        primaryKey : true,
+        allowNull : false,
         onUpdate : "CASCADE",
         onDelete : "CASCADE"
     })
@@ -37,7 +37,7 @@ export class ShirtModels extends Model<InferAttributes<ShirtModels>,InferCreatio
     @ForeignKey(() => ShirtCuts)
     @Column({
         type : DataType.CHAR(36),
-        primaryKey : true,
+        allowNull : false,
         onUpdate : "CASCADE",
         onDelete : "CASCADE"
     })
@@ -47,7 +47,7 @@ export class ShirtModels extends Model<InferAttributes<ShirtModels>,InferCreatio
     @ForeignKey(() => ShirtFabricDensities)
     @Column({
         type : DataType.CHAR(36),
-        primaryKey : true,
+        allowNull : false,
         onUpdate : "CASCADE",
         onDelete : "CASCADE"
     })
@@ -57,7 +57,7 @@ export class ShirtModels extends Model<InferAttributes<ShirtModels>,InferCreatio
     @ForeignKey(() => ShirtFashions)
     @Column({
         type : DataType.CHAR(36),
-        primaryKey : true,
+        allowNull : false,
         onUpdate : "CASCADE",
         onDelete : "CASCADE"
     })
@@ -67,7 +67,7 @@ export class ShirtModels extends Model<InferAttributes<ShirtModels>,InferCreatio
     @ForeignKey(() => ShirtFasteners)
     @Column({
         type : DataType.CHAR(36),
-        primaryKey : true,
+        allowNull : false,
         onUpdate : "CASCADE",
         onDelete : "CASCADE"
     })
@@ -77,7 +77,7 @@ export class ShirtModels extends Model<InferAttributes<ShirtModels>,InferCreatio
     @ForeignKey(() => ShirtSleeveLengths)
     @Column({
         type : DataType.CHAR(36),
-        primaryKey : true,
+        allowNull : false,
         onUpdate : "CASCADE",
         onDelete : "CASCADE"
     })
@@ -87,7 +87,7 @@ export class ShirtModels extends Model<InferAttributes<ShirtModels>,InferCreatio
     @ForeignKey(() => ShirtTypes)
     @Column({
         type : DataType.CHAR(36),
-        primaryKey : true,
+        allowNull : false,
         onUpdate : "CASCADE",
         onDelete : "CASCADE"
     })
@@ -97,7 +97,7 @@ export class ShirtModels extends Model<InferAttributes<ShirtModels>,InferCreatio
     @ForeignKey(() => Seasons)
     @Column({
         type : DataType.CHAR(36),
-        primaryKey : true,
+        allowNull : false,
         onUpdate : "CASCADE",
         onDelete : "CASCADE"
     })
@@ -107,7 +107,7 @@ export class ShirtModels extends Model<InferAttributes<ShirtModels>,InferCreatio
     @ForeignKey(() => Sexes)
     @Column({
         type : DataType.CHAR(36),
-        primaryKey : true,
+        allowNull : false,
         onUpdate : "CASCADE",
         onDelete : "CASCADE"
     })

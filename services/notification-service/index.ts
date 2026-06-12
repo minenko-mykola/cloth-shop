@@ -37,5 +37,5 @@ async function start()
 
 app.listen(PORT, async () => {
     await start();
-    console.log(`[Analytics Service] : Analytics Service started on port ${PORT}`);
+    console.log(`[Notification Service] : Notification Service started on port ${PORT}`);
 })
