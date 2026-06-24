@@ -1,0 +1,41 @@
+services:
+
+  users-service:
+    build:
+      context: ../../services/users-service
+      dockerfile: Dockerfile
+
+    restart: always
+
+    environment:
+      NODE_ENV: production
+      DB_HOST: cloth-shop-db
+      DB_PORT: 3306
+
+      REDIS_HOST: redis
+
+    expose:
+      - "8005"
+
+    networks:
+      - backend-network
+
+    develop:
+      watch:
+        # 1. Слідкуємо за package.json для повної перезбірки (якщо додали новий npm-пакет)
+        - path: ../../services/users-service/
+          action: rebuild
+          ignore:
+            - node_modules/
+#
+#        # 2. Слідкуємо за ВСІЄЇ папкою analytics-service для швидкої синхронізації коду
+#        - path: ../../services/analytics-service/
+#          target: /app                # копіюємо в корінь додатка в контейнері
+#          action: rebuild
+#          ignore:
+#            - node_modules/           # шлях вказується ВІДНОСНО папки 'path'
+
+
+networks:
+  backend-network:
+    driver: bridge
