@@ -12,6 +12,8 @@ services:
       DB_HOST: cloth-shop-db
       DB_PORT: 3306
 
+      REDIS_HOST: redis
+
     expose:
       - "8004"
 
