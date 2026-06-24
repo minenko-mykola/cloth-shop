@@ -2,13 +2,13 @@ import {kafkaConnector} from "./KafkaMessageConnector";
 import {Consumer, EachMessagePayload, Kafka} from "kafkajs";
 import dotenv from "dotenv";
 
-dotenv.config({ path : "envs/.env.notifications" , override : false });
+dotenv.config({ path : "envs/.env.indexer" , override : false });
 
 class KafkaMessageConsumer
 {
 
     private _kafka : Kafka = kafkaConnector;
-    private GROUP_ID = process.env.GROUP_ID || "default-group";
+    private GROUP_ID = process.env.GROUP_ID || "default-search-index-group";
     private _consumer : Consumer = this._kafka.consumer({
         groupId : this.GROUP_ID
     });

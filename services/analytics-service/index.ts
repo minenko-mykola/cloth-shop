@@ -21,13 +21,6 @@ async function start()
 
         await kafkaMessageProducer.connect();
         await kafkaMessageConsumer.startReading();
-
-        await kafkaMessageProducer.send({
-            topic : TOPIC,
-            message : {
-                value : "Kitten will send you analytics"
-            }
-        })
     }
     catch(err)
     {

@@ -8,7 +8,7 @@ class KafkaMessageConsumer
 {
 
     private _kafka : Kafka = kafkaConnector;
-    private GROUP_ID = process.env.GROUP_ID || "default-group";
+    private GROUP_ID = process.env.GROUP_ID || "default-notification-group";
     private _consumer : Consumer = this._kafka.consumer({
         groupId : this.GROUP_ID
     });

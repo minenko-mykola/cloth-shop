@@ -4,14 +4,14 @@ import {router} from "./router";
 import {kafkaMessageConsumer, kafkaMessageProducer, kafkaTopicsManager} from "./messages";
 
 const app = express();
-dotenv.config({ path : "envs/.env.analytics" , override : false });
+dotenv.config({ path : "envs/.env.notifications" , override : false });
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(router);
 
 const PORT : number = Number(process.env.PORT) || 5000;
-const TOPIC : string = process.env.TOPIC || "reserve-analytics";
+const TOPIC : string = process.env.TOPIC || "reserve-notifications";
 
 async function start()
 {
@@ -19,15 +19,7 @@ async function start()
         await kafkaTopicsManager.createTopic(TOPIC);
         await kafkaMessageConsumer.subscribe([TOPIC]);
 
-        await kafkaMessageProducer.connect();
         await kafkaMessageConsumer.startReading();
-
-        await kafkaMessageProducer.send({
-            topic : TOPIC,
-            message : {
-                value : "Kitten will send you analytics"
-            }
-        })
     }
     catch(err)
     {

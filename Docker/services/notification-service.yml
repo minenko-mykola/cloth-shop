@@ -17,7 +17,7 @@ services:
       TZ: Europe/Kyiv
 
     expose:
-      - "7000"
+      - "8002"
 
     depends_on:
       kafka1:

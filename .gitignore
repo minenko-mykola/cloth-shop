@@ -2,14 +2,14 @@
 .vscode
 frontend/node_modules
 frontend/.next
-backend/node_modules
+gateway/node_modules
 services/analytics-service/node_modules
 services/notification-service/node_modules
 services/search-indexer/node_modules
 services/products-service/node_modules
+services/users-service/node_modules
 
-backend/photos
-backend/tsconfig.tsbuildinfo
+gateway/tsconfig.tsbuildinfo
 
 frontend/eslint.config.mjs
 frontend/next-env.d.ts
