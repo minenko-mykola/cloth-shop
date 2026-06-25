@@ -14,23 +14,16 @@ import {Seasons} from "../shared";
 @Table
 export class BlouseModels extends Model<InferAttributes<BlouseModels>,InferCreationAttributes<BlouseModels>>
 {
-    @Column({
-        type : DataType.CHAR(36),
-        defaultValue : DataType.UUIDV4,
-        primaryKey : true
-    })
-
-    declare id? : string;
-
     @ForeignKey(() => ProductModels)
     @Column({
         type : DataType.CHAR(36),
+        primaryKey : true,
         allowNull : false,
         onUpdate : "CASCADE",
         onDelete : "CASCADE"
     })
 
-    declare parentId : string;
+    declare id : string;
 
     @ForeignKey(() => BlouseBacks)
     @Column({
@@ -137,5 +130,5 @@ export class BlouseModels extends Model<InferAttributes<BlouseModels>,InferCreat
     declare season : Seasons;
 
     @BelongsTo(() => ProductModels)
-    declare parentModel : ProductModels;
+    declare model : ProductModels;
 }

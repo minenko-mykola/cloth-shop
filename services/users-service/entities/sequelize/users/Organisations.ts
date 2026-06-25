@@ -21,7 +21,7 @@ export class Organisations extends Model<InferAttributes<Organisations>,InferCre
         onDelete : "RESTRICT"
     })
 
-    declare head_id : string;
+    declare headId : string;
 
     @Column({
         type : DataType.STRING(100),

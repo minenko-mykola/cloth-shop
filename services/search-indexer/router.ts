@@ -1,6 +1,6 @@
 import express from "express";
-import {actions} from "./controller";
+import {indexProduct} from "./actions";
 
 export const router = express.Router();
 
-router.get('/es-index',actions.esIndex);
+router.post('/index-product',indexProduct);

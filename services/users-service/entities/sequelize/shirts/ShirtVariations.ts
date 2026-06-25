@@ -1,27 +1,21 @@
 import {BelongsTo, Column, DataType, ForeignKey, Model, Table} from "sequelize-typescript";
 import {InferAttributes, InferCreationAttributes} from "sequelize";
-import {ShirtModels,ShirtSizes} from "./index";
+import {ShirtSizes} from "./index";
+import {ProductVariations} from "../products";
 
 @Table
 export class ShirtVariations extends Model<InferAttributes<ShirtVariations>,InferCreationAttributes<ShirtVariations>>
 {
+    @ForeignKey(() => ProductVariations)
     @Column({
         type : DataType.CHAR(36),
         primaryKey : true,
-        defaultValue : DataType.UUIDV4
-    })
-
-    declare id? : string;
-
-    @ForeignKey(() => ShirtModels)
-    @Column({
-        type : DataType.CHAR(36),
         allowNull : false,
         onUpdate : "CASCADE",
         onDelete : "CASCADE"
     })
 
-    declare model_id : string;
+    declare id? : string;
 
     @ForeignKey(() => ShirtSizes)
     @Column({
@@ -31,10 +25,7 @@ export class ShirtVariations extends Model<InferAttributes<ShirtVariations>,Infe
         onDelete : "CASCADE"
     })
 
-    declare size_id : string;
-
-    @BelongsTo(() => ShirtModels)
-    declare model : ShirtModels;
+    declare sizeId : string;
 
     @BelongsTo(() => ShirtSizes)
     declare size : ShirtSizes;
@@ -59,4 +50,7 @@ export class ShirtVariations extends Model<InferAttributes<ShirtVariations>,Infe
     })
 
     declare quantity : number;
+
+    @BelongsTo(() => ProductVariations)
+    declare variation : ProductVariations;
 }

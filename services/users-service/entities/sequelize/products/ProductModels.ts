@@ -1,9 +1,10 @@
-import {BelongsTo, Column, DataType, ForeignKey, HasOne, Model, Table} from "sequelize-typescript";
+import {BelongsTo, Column, DataType, ForeignKey, HasMany, HasOne, Model, Table} from "sequelize-typescript";
 import {InferAttributes, InferCreationAttributes} from "sequelize";
 import {Categories} from "../shared";
 import {HeadWearModels} from "../headwear";
 import {GlovesModels} from "../gloves";
 import {BlouseModels} from "../blouses";
+import {ProductVariations} from "./ProductVariations";
 
 @Table
 export class ProductModels extends Model<InferAttributes<ProductModels>,InferCreationAttributes<ProductModels>>
@@ -46,7 +47,7 @@ export class ProductModels extends Model<InferAttributes<ProductModels>,InferCre
         defaultValue: DataType.NOW
     })
 
-    declare publish_date?: Date;
+    declare publishDate?: Date;
 
     @BelongsTo(() => Categories)
     declare category : Categories;
@@ -55,8 +56,11 @@ export class ProductModels extends Model<InferAttributes<ProductModels>,InferCre
     declare glovesModels? : GlovesModels;
 
     @HasOne(() => HeadWearModels)
-    declare headwearModels? : HeadWearModels;
+    declare headwearModel? : HeadWearModels;
+
+    @HasMany(() => ProductVariations)
+    declare variations? : ProductVariations[];
 
     @HasOne(() => BlouseModels)
-    declare blouseModels? : BlouseModels;
+    declare blouseModel? : BlouseModels;
 }

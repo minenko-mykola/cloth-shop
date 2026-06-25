@@ -22,7 +22,7 @@ export class Heads extends Model<InferAttributes<Heads>,InferCreationAttributes<
         unique : true
     })
 
-    declare tax_number : string;
+    declare taxNumber : string;
 
     @BelongsTo(() => Users)
     declare user : Users;

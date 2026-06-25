@@ -1,7 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import {router} from "./router";
-import {sequelize} from "./connectors"
+import {sequelize} from "./connectors";
 
 const app = express();
 dotenv.config({ path: "envs/.env.indexer", override: false });
@@ -16,7 +16,7 @@ async function start() : Promise<void>
 {
     try
     {
-        await sequelize.authenticate()
+        await sequelize.authenticate();
         console.log(`Synchronized!!!`)
     }
     catch(err)

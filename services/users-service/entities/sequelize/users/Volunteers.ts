@@ -23,7 +23,7 @@ export class Volunteers extends Model<InferAttributes<Volunteers>,InferCreationA
         onDelete : "CASCADE"
     })
 
-    declare organisation_id : string;
+    declare organisationId : string;
 
     @Column({
         type : DataType.STRING(10),

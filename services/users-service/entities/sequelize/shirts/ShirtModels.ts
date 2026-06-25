@@ -1,4 +1,4 @@
-import {BelongsTo, Column, DataType, ForeignKey, HasMany, Model, Table} from "sequelize-typescript";
+import {BelongsTo, Column, DataType, ForeignKey, Model, Table} from "sequelize-typescript";
 import {InferAttributes, InferCreationAttributes} from "sequelize";
 import {ProductModels} from "../products";
 import {
@@ -7,7 +7,7 @@ import {
     ShirtFabricDensities,
     ShirtFashions,
     ShirtFasteners,
-    ShirtSleeveLengths, ShirtTypes, ShirtVariations
+    ShirtSleeveLengths, ShirtTypes
 } from "./index";
 import {Seasons, Sexes} from "../shared";
 
@@ -18,11 +18,12 @@ export class ShirtModels extends Model<InferAttributes<ShirtModels>,InferCreatio
     @Column({
         type : DataType.CHAR(36),
         primaryKey : true,
+        allowNull : false,
         onUpdate : "CASCADE",
         onDelete : "CASCADE"
     })
 
-    declare id : string;
+    declare id? : string;
 
     @ForeignKey(() => ShirtCollars)
     @Column({
@@ -32,7 +33,7 @@ export class ShirtModels extends Model<InferAttributes<ShirtModels>,InferCreatio
         onDelete : "CASCADE"
     })
 
-    declare collar_id : string;
+    declare collarId : string;
 
     @ForeignKey(() => ShirtCuts)
     @Column({
@@ -42,7 +43,7 @@ export class ShirtModels extends Model<InferAttributes<ShirtModels>,InferCreatio
         onDelete : "CASCADE"
     })
 
-    declare cut_id : string;
+    declare cutId : string;
 
     @ForeignKey(() => ShirtFabricDensities)
     @Column({
@@ -52,7 +53,7 @@ export class ShirtModels extends Model<InferAttributes<ShirtModels>,InferCreatio
         onDelete : "CASCADE"
     })
 
-    declare fabric_density_id : string;
+    declare fabricDensityId : string;
 
     @ForeignKey(() => ShirtFashions)
     @Column({
@@ -62,7 +63,7 @@ export class ShirtModels extends Model<InferAttributes<ShirtModels>,InferCreatio
         onDelete : "CASCADE"
     })
 
-    declare fashion_id : string;
+    declare fashionId : string;
 
     @ForeignKey(() => ShirtFasteners)
     @Column({
@@ -72,7 +73,7 @@ export class ShirtModels extends Model<InferAttributes<ShirtModels>,InferCreatio
         onDelete : "CASCADE"
     })
 
-    declare fastener_id : string;
+    declare fastenerId : string;
 
     @ForeignKey(() => ShirtSleeveLengths)
     @Column({
@@ -82,7 +83,7 @@ export class ShirtModels extends Model<InferAttributes<ShirtModels>,InferCreatio
         onDelete : "CASCADE"
     })
 
-    declare sleeve_length_id : string;
+    declare sleeveLengthId : string;
 
     @ForeignKey(() => ShirtTypes)
     @Column({
@@ -92,7 +93,7 @@ export class ShirtModels extends Model<InferAttributes<ShirtModels>,InferCreatio
         onDelete : "CASCADE"
     })
 
-    declare type_id : string;
+    declare typeId : string;
 
     @ForeignKey(() => Seasons)
     @Column({
@@ -102,7 +103,7 @@ export class ShirtModels extends Model<InferAttributes<ShirtModels>,InferCreatio
         onDelete : "CASCADE"
     })
 
-    declare season_id : string;
+    declare seasonId : string;
 
     @ForeignKey(() => Sexes)
     @Column({
@@ -112,10 +113,10 @@ export class ShirtModels extends Model<InferAttributes<ShirtModels>,InferCreatio
         onDelete : "CASCADE"
     })
 
-    declare sex_id : string;
+    declare sexId : string;
 
     @BelongsTo(() => ProductModels)
-    declare parent_model : ProductModels;
+    declare model : ProductModels;
 
     @BelongsTo(() => ShirtCollars)
     declare collar : ShirtCollars;
@@ -139,11 +140,8 @@ export class ShirtModels extends Model<InferAttributes<ShirtModels>,InferCreatio
     declare sex : Sexes;
 
     @BelongsTo(() => ShirtSleeveLengths)
-    declare sleeve_length : ShirtSleeveLengths;
+    declare sleeveLength : ShirtSleeveLengths;
 
     @BelongsTo(() => ShirtTypes)
     declare type : ShirtTypes;
-
-    @HasMany(() => ShirtVariations)
-    declare variations : ShirtVariations[]
 }

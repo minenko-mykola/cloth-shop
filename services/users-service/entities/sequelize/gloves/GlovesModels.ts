@@ -34,8 +34,5 @@ export class GlovesModels extends Model<InferAttributes<GlovesModels>,InferCreat
     @BelongsTo(() => ProductModels)
     declare parentModel : ProductModels;
 
-    @HasMany(() => GlovesVariations)
-    declare variations? : GlovesVariations[];
-
     //owner
 }

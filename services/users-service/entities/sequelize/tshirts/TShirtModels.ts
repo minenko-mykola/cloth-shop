@@ -114,7 +114,7 @@ export class TShirtModels extends Model<InferAttributes<TShirtModels>,InferCreat
     declare sexId : string;
 
     @BelongsTo(() => ProductModels)
-    declare parentModel : ProductModels;
+    declare model : ProductModels;
 
     @BelongsTo(() => TShirtCollars)
     declare collar : TShirtCollars;
@@ -142,7 +142,4 @@ export class TShirtModels extends Model<InferAttributes<TShirtModels>,InferCreat
 
     @BelongsTo(() => TShirtTypes)
     declare type : TShirtTypes;
-
-    @HasMany(() => TShirtVariations)
-    declare variations? : TShirtVariations[]
 }
