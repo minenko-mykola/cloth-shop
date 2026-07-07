@@ -1,7 +1,6 @@
 import {Column, DataType, HasMany, HasOne, Model, Table} from "sequelize-typescript";
 import {InferAttributes, InferCreationAttributes} from "sequelize";
 import {Heads, Volunteers} from "./index";
-import {Sessions} from "../shared";
 import {uuidv7} from "uuidv7";
 
 @Table
@@ -46,9 +45,6 @@ export class Users extends Model<InferAttributes<Users>,InferCreationAttributes<
 
     @HasOne(() => Volunteers)
     declare volunteer? : Volunteers;
-
-    @HasMany(() => Sessions)
-    declare sessions? : Sessions[];
 
     @HasOne(() => Heads)
     declare head? : Heads;
