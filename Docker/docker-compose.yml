@@ -3,6 +3,7 @@ name: cloth-shop-project
 include:
   - path: infrastructure/cloth-shop-db.yml
   - path: infrastructure/espocrm-db.yml
+  - path: infrastructure/clickhouse-cluster.yml
   - path: infrastructure/redis.yml
   - path: infrastructure/elk.yml
   - path: infrastructure/kafka.yml
@@ -15,9 +16,6 @@ include:
   - path: services/search-indexer.yml
   - path: services/products-service.yml
   - path: services/users-service.yml
-#  - path: services/ofelia.yml
-
-  - path: infrastructure/clickhouse/clickhouse-cluster.yml
 
 networks:
   frontend-network:

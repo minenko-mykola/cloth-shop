@@ -1,25 +1,20 @@
 services:
 
   redis:
-    image: redis:7-alpine
-
+    image: redis/redis-stack-server:latest
     restart: always
-
     ports:
       - "6379:6379"
-
-    command: ["redis-server", "--requirepass","your_secure_password"]
-
+    environment:
+      - REDIS_ARGS=--requirepass your_secure_password --appendonly yes
     volumes:
       - redis_data:/data
-
     healthcheck:
-      test: [ "CMD", "redis-cli", "ping" ]
+      test: [ "CMD", "redis-cli", "-a", "your_secure_password", "ping" ]
       interval: 10s
       timeout: 5s
       retries: 10
       start_period: 120s
-
     networks:
       - backend-network
 
