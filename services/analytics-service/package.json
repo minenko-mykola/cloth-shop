@@ -17,10 +17,15 @@
     "axios": "1.15.2",
     "bcrypt": "^6.0.0",
     "body-parser": "^2.2.1",
+    "clickhouse-orm": "^3.0.2",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
-    "kafkajs": "^2.2.4"
+    "express-validator": "^7.3.2",
+    "kafkajs": "^2.2.4",
+    "redis": "^6.1.0",
+    "redis-om": "^0.4.7",
+    "uuidv7": "^1.2.1"
   },
   "devDependencies": {
     "tsx": "^4.20.6",
