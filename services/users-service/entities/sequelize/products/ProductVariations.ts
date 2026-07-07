@@ -1,11 +1,6 @@
-import {BelongsTo, Column, DataType, ForeignKey, HasOne, Model, Table} from "sequelize-typescript";
+import {BelongsTo, Column, DataType, ForeignKey, Model, Table} from "sequelize-typescript";
 import {InferAttributes, InferCreationAttributes} from "sequelize";
 import {ProductModels} from "./ProductModels";
-import {ShirtVariations} from "../shirts";
-import {TShirtVariations} from "../tshirts";
-import {GlovesVariations} from "../gloves";
-import {HeadWearVariations} from "../headwear";
-import {BlouseVariations} from "../blouses";
 
 @Table
 export class ProductVariations extends Model<InferAttributes<ProductVariations>,InferCreationAttributes<ProductVariations>>
@@ -58,19 +53,4 @@ export class ProductVariations extends Model<InferAttributes<ProductVariations>,
 
     @BelongsTo(() => ProductModels)
     declare model : ProductModels;
-
-    @HasOne(() => GlovesVariations)
-    declare gloves : GlovesVariations;
-
-    @HasOne(() => HeadWearVariations)
-    declare headwear : HeadWearVariations;
-
-    @HasOne(() => BlouseVariations)
-    declare blouse : BlouseVariations;
-
-    @HasOne(() => ShirtVariations)
-    declare shirt : ShirtVariations;
-
-    @HasOne(() => TShirtVariations)
-    declare tshirt : TShirtVariations;
 }

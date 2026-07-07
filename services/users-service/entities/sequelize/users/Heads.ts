@@ -3,7 +3,9 @@ import {BelongsTo, Column, DataType, ForeignKey, HasOne, Model, Table} from "seq
 import {InferAttributes, InferCreationAttributes} from "sequelize";
 import {Organisations, Users} from "./index";
 
-@Table
+@Table({
+    timestamps: false
+})
 export class Heads extends Model<InferAttributes<Heads>,InferCreationAttributes<Heads>>
 {
     @ForeignKey(() => Users)

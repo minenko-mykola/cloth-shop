@@ -2,7 +2,9 @@ import {BelongsTo, Column, DataType, ForeignKey, Model, Table} from "sequelize-t
 import {InferAttributes, InferCreationAttributes} from "sequelize";
 import {Organisations, Users} from "./index";
 
-@Table
+@Table({
+    timestamps: false
+})
 export class Volunteers extends Model<InferAttributes<Volunteers>,InferCreationAttributes<Volunteers>>
 {
     @ForeignKey(() => Users)
@@ -31,7 +33,7 @@ export class Volunteers extends Model<InferAttributes<Volunteers>,InferCreationA
         unique : true
     })
 
-    declare tax_number : string;
+    declare taxNumber : string;
 
     @BelongsTo(() => Organisations)
     declare organisation? : Organisations;

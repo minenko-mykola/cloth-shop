@@ -11,7 +11,9 @@ import {
 } from "./index";
 import {Seasons, Sexes} from "../shared";
 
-@Table
+@Table({
+    timestamps: false
+})
 export class ShirtModels extends Model<InferAttributes<ShirtModels>,InferCreationAttributes<ShirtModels>>
 {
     @ForeignKey(() => ProductModels)

@@ -35,8 +35,7 @@ export class ProductModels extends Model<InferAttributes<ProductModels>,InferCre
 
     @Column({
         type: DataType.STRING,
-        allowNull: false,
-        unique : true
+        allowNull: false
     })
 
     declare description: string;

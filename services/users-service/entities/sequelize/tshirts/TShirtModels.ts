@@ -1,4 +1,4 @@
-import {BelongsTo, Column, DataType, ForeignKey, HasMany, Model, Table} from "sequelize-typescript";
+import {BelongsTo, Column, DataType, ForeignKey, Model, Table} from "sequelize-typescript";
 import {InferAttributes, InferCreationAttributes} from "sequelize";
 import {ProductModels} from "../products";
 import {
@@ -6,11 +6,13 @@ import {
     TShirtCuts,
     TShirtFabricDensities,
     TShirtFashions,
-    TShirtSleeveLengths, TShirtSleeveTypes, TShirtTypes, TShirtVariations
+    TShirtSleeveLengths, TShirtSleeveTypes, TShirtTypes
 } from "./index";
 import {Seasons, Sexes} from "../shared";
 
-@Table
+@Table({
+    timestamps: false
+})
 export class TShirtModels extends Model<InferAttributes<TShirtModels>,InferCreationAttributes<TShirtModels>>
 {
     @ForeignKey(() => ProductModels)

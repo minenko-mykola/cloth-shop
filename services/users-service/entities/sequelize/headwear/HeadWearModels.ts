@@ -4,7 +4,9 @@ import {ProductModels} from "../products";
 import {HeadWearTypes} from "./index";
 import {Seasons, Sexes} from "../shared";
 
-@Table
+@Table({
+    timestamps: false
+})
 export class HeadWearModels extends Model<InferAttributes<HeadWearModels>,InferCreationAttributes<HeadWearModels>>
 {
     @ForeignKey(() => ProductModels)

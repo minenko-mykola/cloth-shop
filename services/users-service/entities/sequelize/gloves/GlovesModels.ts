@@ -1,9 +1,10 @@
-import {Column, DataType, Model, HasMany, ForeignKey, BelongsTo, Table} from "sequelize-typescript";
+import {Column, DataType, Model, ForeignKey, BelongsTo, Table} from "sequelize-typescript";
 import {InferAttributes, InferCreationAttributes} from "sequelize";
-import {GlovesVariations} from "./index";
 import {ProductModels} from "../products";
 
-@Table
+@Table({
+    timestamps: false
+})
 export class GlovesModels extends Model<InferAttributes<GlovesModels>,InferCreationAttributes<GlovesModels>>
 {
     @ForeignKey(() => ProductModels)
