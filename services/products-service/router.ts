@@ -1,6 +1,6 @@
 import express from "express";
-import {actions} from "./controller";
+import {getProducts} from "./actions";
 
 export const router = express.Router();
 
-router.get('/',actions.getAllProducts);
+router.get("/",getProducts);

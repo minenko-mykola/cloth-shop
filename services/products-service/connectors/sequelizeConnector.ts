@@ -12,6 +12,7 @@ export const sequelize = new Sequelize(process.env.DB_NAME || "reserve",
     port : Number(process.env.DB_PORT) || 3306,
             models: Object.values(Models),
     logging: console.log,
+    benchmark : true
 });
 
 //kitten
