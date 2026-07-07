@@ -1,6 +1,6 @@
 import express from "express";
-import {indexProduct} from "./actions";
+import {indexAll} from "./actions";
 
 export const router = express.Router();
 
-router.post('/index-product',indexProduct);
+router.get('/index-all',indexAll);
