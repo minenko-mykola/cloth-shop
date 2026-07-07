@@ -1,11 +1,13 @@
 import express from "express";
 import dotenv from "dotenv";
 import {router} from "./router";
-import {kafkaMessageConsumer, kafkaMessageProducer, kafkaTopicsManager} from "./messages";
+import {logsRepository, redisClient} from "./redis/logs";
+import {sessionRepository} from "./redis/sessions";
+
+dotenv.config({ path : "envs/.env.analytics" , override : false });
+dotenv.config({ path: "envs/.env.redis",override : false });
 
 const app = express();
-dotenv.config({ path : "envs/.env.analytics" , override : false });
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(router);
@@ -15,16 +17,19 @@ const TOPIC : string = process.env.TOPIC || "reserve-analytics";
 
 async function start()
 {
-    try{
-        await kafkaTopicsManager.createTopic(TOPIC);
-        await kafkaMessageConsumer.subscribe([TOPIC]);
+    try
+    {
+        await redisClient.connect();
+        console.log(await redisClient.ping());
 
-        await kafkaMessageProducer.connect();
-        await kafkaMessageConsumer.startReading();
+        await logsRepository.createIndex();
+        await sessionRepository.createIndex();
+
+        await sessionRepository.expire("id",60 * 15)
     }
     catch(err)
     {
-        console.log(`Failed to start Kafka: ${err}`);
+        console.log(`Failed to start: ${JSON.stringify(err)}`);
     }
 }
 
