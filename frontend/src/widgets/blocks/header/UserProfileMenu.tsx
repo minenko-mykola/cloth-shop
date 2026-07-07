@@ -2,6 +2,7 @@
 import React from 'react';
 import {Avatar, Menu, Portal, Stack, Text} from "@chakra-ui/react";
 import axios from "axios";
+import {redirect} from "next/navigation";
 
 export const UserProfileMenu = () => {
 
@@ -38,11 +39,7 @@ export const UserProfileMenu = () => {
                             <Menu.Item value="settings">Settings</Menu.Item>
 
                             <Menu.Item value="dashboard" onSelect={() => {
-                                axios.get("http://localhost:5000/api/services/espo-crm").then((response) => {
-                                    console.log(response);
-                                }).catch((error) => {
-                                    console.log(error);
-                                })
+                                redirect("/crm")
                             }}>Dashboard</Menu.Item>
                             <Menu.Item value="logout" onSelect={() => {
 

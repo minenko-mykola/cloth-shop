@@ -9,7 +9,6 @@ export const Header = () => {
         <header>
             <Flex direction="column">
                 <UpperHeader></UpperHeader>
-                <Button>Click 2</Button>
                 <DownHeader></DownHeader>
             </Flex>
         </header>

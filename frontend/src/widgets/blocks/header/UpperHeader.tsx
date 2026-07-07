@@ -2,7 +2,7 @@ import React from 'react';
 import {Flex, Link} from "@chakra-ui/react";
 import {LogoIcon} from "@/shared/custom-icons";
 import {DebugModal} from "@/shared/else";
-import {LeftMenu, SearchBar} from "@/widgets/blocks/header";
+import {LeftMenu, SearchBar, UserProfileMenu} from "@/widgets/blocks/header";
 import {CartDrawer, CheckoutForm} from "@/widgets/blocks/carts";
 
 export const UpperHeader = () => {
@@ -21,6 +21,7 @@ export const UpperHeader = () => {
                 </Flex>
                 <Flex direction="row">
                     <CartDrawer></CartDrawer>
+                    <UserProfileMenu></UserProfileMenu>
                 </Flex>
             </Flex>
             <DebugModal></DebugModal>
