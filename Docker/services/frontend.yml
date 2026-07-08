@@ -39,6 +39,15 @@ services:
 #            - node_modules/           # шлях вказується ВІДНОСНО папки 'path'
 #            - .next/                  # шлях вказується ВІДНОСНО папки 'path'
 
+#    deploy:
+#      mode: replicated
+#      replicas: 2
+#      endpoint_mode: vip
+#      resources:
+#        limits:
+#          cpus: '0.05'
+#          memory: 256M
+
 
 networks:
   frontend-network:

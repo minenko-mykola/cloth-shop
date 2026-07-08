@@ -20,6 +20,15 @@ services:
     networks:
       - backend-network
 
+#    deploy:
+#      mode: replicated
+#      replicas: 2
+#      endpoint_mode: vip
+#      resources:
+#        limits:
+#          cpus: '0.025'
+#          memory: 100M
+
     develop:
       watch:
         # 1. Слідкуємо за package.json для повної перезбірки (якщо додали новий npm-пакет)

@@ -4,10 +4,12 @@ include:
   - path: infrastructure/cloth-shop-db.yml
   - path: infrastructure/espocrm-db.yml
   - path: infrastructure/clickhouse-cluster.yml
+  - path: infrastructure/keycloak-db.yml
   - path: infrastructure/redis.yml
   - path: infrastructure/elk.yml
   - path: infrastructure/kafka.yml
   - path: services/gateway.yml
+  - path: services/keycloak.yml
   - path: services/frontend.yml
   - path: services/espocrm.yml
   - path: services/nginx.yml
