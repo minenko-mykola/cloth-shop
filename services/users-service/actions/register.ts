@@ -1,12 +1,12 @@
 import express from "express";
 import {validationResult} from "express-validator";
-import {v4 as uuidv4} from "uuid";
 import bcrypt from "bcrypt";
 import {sequelize} from "../connectors";
-import {Sessions, Users} from "../entities/sequelize";
+import {Users} from "../entities/sequelize";
 import {Op} from "sequelize";
 import dotenv from "dotenv";
 import jwt from "jsonwebtoken";
+import {uuidv7} from "uuidv7";
 
 dotenv.config({ path : "envs/.env.hashing" })
 const ROUNDS : number = Number(process.env.SALT_ROUNDS) || 12;
@@ -26,7 +26,7 @@ export async function register(req : express.Request, res : express.Response) : 
 
         const {name,surname,login,password} = req.body;
 
-        const userId = uuidv4()
+        const userId = uuidv7()
 
         //jwt.sign(payload,key,{
         // expiresIn : ""})
@@ -64,13 +64,6 @@ export async function register(req : express.Request, res : express.Response) : 
                     surname: surname,
                     login: login,
                     password: hashedPassword
-                },{ transaction : t })
-
-                const token : Sessions = await Sessions.create({
-                    expireTime: new Date(Date.now()),
-                    refreshToken : refreshToken,
-                    userId: user.id!
-
                 },{ transaction : t })
             }
         })
