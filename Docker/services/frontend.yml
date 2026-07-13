@@ -39,6 +39,11 @@ services:
 #            - node_modules/           # шлях вказується ВІДНОСНО папки 'path'
 #            - .next/                  # шлях вказується ВІДНОСНО папки 'path'
 
+    deploy:
+      resources:
+        limits:
+          cpus: "0.1"
+          memory: 256M
 #    deploy:
 #      mode: replicated
 #      replicas: 2

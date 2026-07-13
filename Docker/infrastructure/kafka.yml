@@ -22,6 +22,13 @@ services:
       KAFKA_MIN_INSYNC_REPLICAS: 2
       ALLOW_AUTO_CREATE_TOPICS_CONFIG : true
 
+
+    deploy:
+      resources:
+        limits:
+          cpus : "0.2"
+          memory: 512M
+
     volumes:
       - ./kafka1/data:/var/lib/kafka/data
     networks:
@@ -49,6 +56,12 @@ services:
       KAFKA_LOG_RETENTION_CHECK_INTERVAL_MS: 5000
       KAFKA_MIN_INSYNC_REPLICAS: 2
       ALLOW_AUTO_CREATE_TOPICS_CONFIG: true
+
+    deploy:
+      resources:
+        limits:
+          cpus : "0.2"
+          memory: 512M
 
     volumes:
       - ./kafka2/data:/var/lib/kafka/data
@@ -78,6 +91,13 @@ services:
       KAFKA_MIN_INSYNC_REPLICAS: 2
       ALLOW_AUTO_CREATE_TOPICS_CONFIG: true
 
+    deploy:
+      resources:
+        limits:
+          cpus : "0.2"
+          memory: 512M
+
+
     volumes:
       - ./kafka3/data:/var/lib/kafka/data
     networks:
@@ -91,10 +111,18 @@ services:
     environment:
       KAFKA_CLUSTERS_0_NAME: local-cluster
       KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka1:9092,kafka2:9092,kafka3:9092
+
     depends_on:
       - kafka1
       - kafka2
       - kafka3
+
+    deploy:
+      resources:
+        limits:
+          cpus : "0.2"
+          memory: 512M
+
     networks:
       - backend-network
 

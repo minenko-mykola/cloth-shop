@@ -1,7 +1,7 @@
 x-configs: &ch-default-configs
   image: clickhouse/clickhouse-server:25.1
   environment:
-      TZ: "Europe/Moscow"
+      TZ: "Europe/Kyiv"
   ulimits:
     nproc: 65535
     nofile:
@@ -9,6 +9,13 @@ x-configs: &ch-default-configs
       hard: 262144
   networks:
     - backend-network
+
+  deploy:
+    resources:
+      limits:
+        cpus : "0.2"
+        memory : 512M
+
   depends_on:
     - zookeeper
     
@@ -21,11 +28,17 @@ services:
     environment:
 #      - ALLOW_ANONYMOUS_LOGIN=yes
       - ZOOKEEPER_CLIENT_PORT=2181
-      - TZ="Europe/Moscow"
+      - TZ="Europe/Kyiv"
     ports:
       - "2182:2181"
       - "2888:2888"
       - "3888:3888"
+
+    deploy:
+      resources:
+        limits:
+          cpus: "0.2"
+          memory: 512M
 
   clickhouse-01:
     <<: *ch-default-configs
@@ -48,6 +61,13 @@ services:
     ports:
       - "8003:9000"
       - "9124:8123"
+
+    deploy:
+      resources:
+        limits:
+          cpus : "0.2"
+          memory : 512M
+
       
   clickhouse-03:
     <<: *ch-default-configs
@@ -60,6 +80,13 @@ services:
       - "8004:9000"
       - "9125:8123"
 
+    deploy:
+      resources:
+        limits:
+          cpus : "0.2"
+          memory : 512M
+
+
   clickhouse-04:
     <<: *ch-default-configs
     volumes:
@@ -71,6 +98,13 @@ services:
       - "8005:9000"
       - "9126:8123"
 
+    deploy:
+      resources:
+        limits:
+          cpus : "0.2"
+          memory : 512M
+
+
   haproxy:
     image: haproxy:3.1.7
     networks:
@@ -78,6 +112,13 @@ services:
     ports:
       - "9001:9000"  
       - "8124:8123"  # HTTP порт для ClickHouse c балансировкой
+
+    deploy:
+      resources:
+        limits:
+          cpus : "0.2"
+          memory : 512M
+
     volumes:
       - ./configs/haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
     depends_on:

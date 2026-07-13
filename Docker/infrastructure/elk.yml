@@ -12,6 +12,13 @@ services:
       - elastic_data:/usr/share/elasticsearch/data
     networks:
       - backend-network
+
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 1024M
+
     healthcheck:
       test: ["CMD-SHELL", "curl -s http://localhost:9200/_cluster/health || exit 1"]
       interval: 10s
@@ -31,6 +38,12 @@ services:
         condition: service_healthy
     networks:
       - backend-network
+
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 1024M
 
     healthcheck:
       test: ["CMD-SHELL", "curl -s -I http://localhost:5601/api/status | grep -q 'HTTP/1.1 200 OK' || exit 1"]

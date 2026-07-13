@@ -32,6 +32,12 @@ services:
     networks:
       - backend-network
 
+    deploy:
+      resources:
+        limits:
+          cpus: "0.1"
+          memory: 256M
+
 #    deploy:
 #      mode: replicated
 #      replicas: 2
