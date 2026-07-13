@@ -1,3 +1,5 @@
 export * from "./createSession"
 export * from "./writeOperation"
+export * from "./createEsEosLog"
+export * from "./getEsEosLog"
 export * from "./getStatus"

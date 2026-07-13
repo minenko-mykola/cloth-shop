@@ -1,2 +1,3 @@
 export * from "./getProducts"
-export {default as getProducts} from "./getProducts"
+export * from "./indexProducts"
+export * from "./createIndex"

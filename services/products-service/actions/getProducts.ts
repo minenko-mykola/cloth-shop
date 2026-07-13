@@ -6,7 +6,7 @@ dotenv.config({ path: "envs/.env.products", override : false });
 
 const SERVICE_NAME = process.env.SERVISE_NAME || "products-service";
 
-async function getProducts(req: express.Request, res: express.Response)
+export async function getProducts(req: express.Request, res: express.Response)
 {
     let limit = Number(req.query.limit) || -1;
     let offset = String(req.query.offset) || "";
@@ -48,5 +48,3 @@ async function getProducts(req: express.Request, res: express.Response)
         return;
     }
 }
-
-export default getProducts

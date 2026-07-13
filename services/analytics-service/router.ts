@@ -1,5 +1,5 @@
 import express from "express";
-import {getStatus, writeOperation} from "./actions";
+import {createEsEosLog, getEsEosLog, getStatus, writeOperation} from "./actions";
 import {checkSchema} from "express-validator";
 import {createSession} from "./actions";
 
@@ -28,6 +28,15 @@ const createSessionSchema = checkSchema({
     }
 })
 
+const createEsEosLogSchema = checkSchema({
+    key : {
+        isUUID : true,
+        errorMessage : "Key must be a UID"
+    }
+})
+
 router.get("/get-status/:operationId",getStatusUUID,getStatus);
 router.post('/write-operation',writeOperation);
 router.post("/create-session",createSessionSchema,createSession);
+router.post("/create-es-eos-log",createEsEosLogSchema,createEsEosLog)
+router.get("/get-es-eos-log/:key",createEsEosLogSchema,getEsEosLog)

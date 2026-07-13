@@ -5,7 +5,7 @@ import {kafkaProducer} from "../messages";
 import {uuidv7} from "uuidv7";
 
 dotenv.config({ path: "envs/.env.indexer", override: false });
-const TOPIC : string = process.env.TOPIC || "reserve-search-index";
+const TOPIC : string = process.env.TARGET_TOPIC || "reserve-products-service";
 const LIMIT : number = Number(process.env.LIMIT) || 1000;
 const SERVICE_NAME : string = process.env.SERVICE_NAME || "search-indexer";
 
@@ -13,7 +13,8 @@ async function indexByBatch()
 {
     let batch = []
     let offset = ""
-    let iteration = 0;
+    let iteration = 1;
+    const ids : any[] = []
 
     do
     {
@@ -26,14 +27,15 @@ async function indexByBatch()
 
         batch = JSON.parse(response.data.message);
 
-        console.log("Batch:", batch);
+        // console.log("Batch:", batch);
 
         if(batch.length > 0)
         {
             offset = batch[batch.length - 1].id
 
-            const messages = batch.map((item : any) => ({
-                value: JSON.stringify(item)
+            const messages = batch.map((item : any) => ({ //O(M)
+                value: JSON.stringify(item),
+                key : iteration
             }));
 
             await kafkaProducer.send({

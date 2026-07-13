@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(router)
 
 const PORT : number = Number(process.env.PORT) || 8000;
-const TOPIC : string = process.env.TOPIC || "reserve-search-index";
+const TOPIC : string = process.env.TARGET_TOPIC || "products-service";
 
 async function start()
 {
