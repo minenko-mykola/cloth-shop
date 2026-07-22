@@ -20,6 +20,9 @@
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
     "kafkajs": "^2.2.4",
+    "mongoose": "^9.7.4",
+    "mysql2": "^3.22.6",
+    "sequelize-typescript": "^2.1.6",
     "uuidv7": "^1.2.1"
   },
   "devDependencies": {
