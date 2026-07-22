@@ -3,7 +3,6 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import path from "node:path";
-import { kafkaMessageProducer, } from "./messages";
 
 dotenv.config({ path: "envs/.env.backend", override: false });
 
@@ -21,7 +20,7 @@ const SEARCH_INDEX_TOPIC : string = process.env.SEARCH_INDEX_TOPIC || "search-in
 async function start()
 {
     try{
-        await kafkaMessageProducer.connect();
+
     }
     catch(err)
     {
