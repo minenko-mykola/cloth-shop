@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(router)
 
 const PORT : number = Number(process.env.PORT) || 8000;
-const TOPIC : string = process.env.TOPIC || "products-service";
+const TOPIC : string = process.env.TOPIC || "products";
 
 async function start() : Promise<void>
 {
@@ -20,14 +20,18 @@ async function start() : Promise<void>
     {
         await sequelize.authenticate();
         await sequelize.sync();
+
+        await kafkaConsumer.connect();
         await kafkaProducer.connect();
+
         await kafkaConsumer.subscribe({ topic : TOPIC, fromBeginning : true })
+        await kafkaConsumer.run();
+
         console.log(`Synchronized!!!`)
     }
     catch(err)
     {
         console.log(`Error:${err}`)
-        throw err
     }
 }
 

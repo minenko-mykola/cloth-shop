@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(router)
 
 const PORT = Number(process.env.PORT) || 8000;
-const TOPIC = process.env.TARGET_TOPIC || "products-service";
+const TOPIC = process.env.TARGET_TOPIC || "products";
 const MONGO_URL = process.env.DB_URL || "mongodb://your_secret_user:your_secret_password@mongodb:27017/logs?authSource=admin";
 
 async function start()
@@ -23,10 +23,14 @@ async function start()
     try
     {
         await sequelize.authenticate();
-        await kafkaProducer.connect()
-        await kafkaConsumer.connect()
         await mongoose.connect(MONGO_URL);
         const result = await createIndex()
+
+        await kafkaProducer.connect()
+        await kafkaConsumer.connect()
+
+        await kafkaConsumer.subscribe({ topic : TOPIC, fromBeginning : true })
+        await kafkaConsumer.run();
     }
     catch(err)
     {
