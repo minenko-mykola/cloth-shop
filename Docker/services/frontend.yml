@@ -42,8 +42,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "0.1"
-          memory: 256M
+          cpus: "0.4"
+          memory: 1024M
 #    deploy:
 #      mode: replicated
 #      replicas: 2
