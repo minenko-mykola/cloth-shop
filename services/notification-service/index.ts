@@ -1,7 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
 import {router} from "./router";
-import {kafkaMessageConsumer, kafkaMessageProducer, kafkaTopicsManager} from "./messages";
 
 const app = express();
 dotenv.config({ path : "envs/.env.notifications" , override : false });
@@ -16,10 +15,7 @@ const TOPIC : string = process.env.TOPIC || "reserve-notifications";
 async function start()
 {
     try{
-        await kafkaTopicsManager.createTopic(TOPIC);
-        await kafkaMessageConsumer.subscribe([TOPIC]);
 
-        await kafkaMessageConsumer.startReading();
     }
     catch(err)
     {
