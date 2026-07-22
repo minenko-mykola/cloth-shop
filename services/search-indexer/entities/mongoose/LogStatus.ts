@@ -1,0 +1,1 @@
+export type LogStatus = 'started' | 'completed' | 'failed'
