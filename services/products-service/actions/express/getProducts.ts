@@ -1,5 +1,5 @@
 import express from "express";
-import {Categories, ProductModels, ProductVariations} from "../entities/sequelize";
+import {Categories, ProductModels, ProductVariations} from "../../entities/sequelize";
 import {Op} from "sequelize";
 import dotenv from "dotenv";
 dotenv.config({ path: "envs/.env.products", override : false });
