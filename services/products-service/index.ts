@@ -2,7 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import {router} from "./router";
 import {sequelize} from "./connectors";
-import {kafkaConnector, kafkaConsumer, kafkaProducer} from "./messages";
+import {kafkaConsumer, kafkaProducer} from "./messages";
 
 const app = express();
 dotenv.config({ path: "envs/.env.products", override: false });
