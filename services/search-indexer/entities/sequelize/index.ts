@@ -1,6 +1,7 @@
 export * from "./blouses"
 export * from "./gloves"
 export * from "./headwear"
+export * from "./outboxes"
 export * from "./products"
 export * from "./shared"
 export * from "./shirts"
