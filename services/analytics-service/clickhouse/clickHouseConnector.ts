@@ -1,6 +1,6 @@
 import {ClickhouseOrm} from "clickhouse-orm";
 import dotenv from "dotenv";
-dotenv.config( { path: "envs/.env.analytics", override : false } );
+dotenv.config( { path: "envs/.env.scheduler", override : false } );
 
 const DB_NAME = process.env.CH_DB_NAME || "clickhouse_db";
 const DB_CLUSTER = process.env.CH_DB_CLUSTER || "c2sh2rep";

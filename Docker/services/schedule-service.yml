@@ -1,0 +1,41 @@
+services:
+
+  schedule-service:
+    build:
+      context: ../../services/schedule-service
+      dockerfile: Dockerfile
+
+    restart: always
+
+    expose:
+      - "8006"
+
+    networks:
+      - backend-network
+
+    healthcheck:
+      test: ["CMD","curl","-f","https://jsonplaceholder.typicode.com"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "0.1"
+          memory: 256M
+
+
+    develop:
+      watch:
+        - path: ../../services/schedule-service/
+          action: rebuild
+          ignore:
+            - node_modules/
+
+
+networks:
+  backend-network:
+    driver: bridge

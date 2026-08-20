@@ -8,6 +8,7 @@ services/notification-service/node_modules
 services/search-indexer/node_modules
 services/products-service/node_modules
 services/users-service/node_modules
+services/schedule-service/node_modules
 Docker/infrastructure/data
 gateway/tsconfig.tsbuildinfo
 

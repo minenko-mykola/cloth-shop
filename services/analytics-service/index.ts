@@ -5,7 +5,7 @@ import {logsRepository, redisClient} from "./redis/logs";
 import {sessionRepository} from "./redis/sessions";
 import {esEosRepository} from "./redis/es-eos";
 
-dotenv.config({ path : "envs/.env.analytics" , override : false });
+dotenv.config({ path : "envs/.env.scheduler" , override : false });
 dotenv.config({ path: "envs/.env.redis",override : false });
 
 const app = express();

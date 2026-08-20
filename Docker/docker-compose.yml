@@ -19,6 +19,7 @@ include:
   - path: services/search-indexer.yml
   - path: services/products-service.yml
   - path: services/users-service.yml
+  - path: services/schedule-service.yml
 
 networks:
   frontend-network:

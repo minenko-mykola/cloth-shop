@@ -1,2 +1,3 @@
 export * from "./getProducts"
-export * from "./updateProduct"
+export * from "./readOutbox"
+export * from "./writeOutbox"
