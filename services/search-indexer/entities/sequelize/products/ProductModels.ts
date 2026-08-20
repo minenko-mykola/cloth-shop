@@ -6,6 +6,7 @@ import {GlovesModels} from "../gloves";
 import {BlouseModels} from "../blouses";
 import {ProductVariations} from "./ProductVariations";
 import {uuidv7} from "uuidv7";
+import {ProductsOutbox} from "../outboxes";
 
 @Table
 export class ProductModels extends Model<InferAttributes<ProductModels>,InferCreationAttributes<ProductModels>>
@@ -60,6 +61,9 @@ export class ProductModels extends Model<InferAttributes<ProductModels>,InferCre
 
     @HasMany(() => ProductVariations)
     declare variations? : ProductVariations[];
+
+    @HasMany(() => ProductsOutbox)
+    declare outboxes? : ProductsOutbox[];
 
     @HasOne(() => BlouseModels)
     declare blouseModel? : BlouseModels;
