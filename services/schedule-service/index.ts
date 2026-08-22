@@ -17,7 +17,7 @@ async function start()
 {
     try
     {
-        cron.schedule('*/5 * * * * *',async () => {
+        cron.schedule('0 */5 * * * *',async () => {
 
             await readOutbox();
         })

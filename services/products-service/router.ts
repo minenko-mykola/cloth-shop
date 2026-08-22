@@ -5,9 +5,9 @@ import {checkSchema} from "express-validator";
 export const router = express.Router();
 
 const productSchema = checkSchema({
-    id : {
+    variationId : {
         isUUID : true,
-        errorMessage : "Id must be UUID",
+        errorMessage : "VariationId must be UUID",
         notEmpty : true
     },
     modelId : {
@@ -20,7 +20,7 @@ const productSchema = checkSchema({
         errorMessage : "Value must be a string",
         notEmpty : true
     },
-    quantity : {
+    price : {
         isNumeric : true,
         errorMessage : "Value must be a number",
         isLength : {
@@ -30,15 +30,15 @@ const productSchema = checkSchema({
             errorMessage : "Value must be greater than 0"
         }
     },
-    createdAt : {
-        isISO8601 : true,
-        notEmpty : true,
-        errorMessage : "Invalid createdAt date received"
-    },
-    updatedAt : {
-        isISO8601 : true,
-        notEmpty : true,
-        errorMessage : "Invalid updatedAt date received"
+    quantity : {
+        isNumeric : true,
+        errorMessage : "Value must be a number",
+        isLength : {
+            options : {
+                min : 0
+            },
+            errorMessage : "Value must be greater than 0"
+        }
     }
 })
 

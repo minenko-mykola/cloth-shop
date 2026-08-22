@@ -11,9 +11,9 @@ export async function readOutbox(req : express.Request, res: express.Response)
     }
     catch(err)
     {
-        console.log(`[Products Service] : Error while reading from product-variation outbox:${err}`)
+        console.log(`[Products Service] : Error while reading from outbox:${err}`)
         res.status(500).json({
-            message : `Error while reading from product-variation outbox:${err}`
+            message : `Error while reading from outbox:${err}`
         });
     }
 }

@@ -1,7 +1,7 @@
 import {BelongsTo, Column, DataType, ForeignKey, Model, Table} from "sequelize-typescript";
 import {InferAttributes, InferCreationAttributes} from "sequelize";
 import {uuidv7} from "uuidv7";
-import {ProductModels} from "../products";
+import {ProductModels, ProductVariations} from "../products";
 
 @Table
 export class ProductsOutbox extends Model<InferAttributes<ProductsOutbox>,InferCreationAttributes<ProductsOutbox>>
@@ -13,6 +13,14 @@ export class ProductsOutbox extends Model<InferAttributes<ProductsOutbox>,InferC
     })
 
     declare id? : string;
+
+    @ForeignKey(() => ProductVariations)
+    @Column({
+        type : DataType.CHAR(36),
+        defaultValue: uuidv7()
+    })
+
+    declare variationId : string;
 
     @ForeignKey(() => ProductModels)
     @Column({
@@ -53,5 +61,8 @@ export class ProductsOutbox extends Model<InferAttributes<ProductsOutbox>,InferC
     declare quantity : number;
 
     @BelongsTo(() => ProductModels)
-    declare model : ProductModels;
+    declare model? : ProductModels;
+
+    @BelongsTo(() => ProductVariations)
+    declare variantion? : ProductVariations;
 }
