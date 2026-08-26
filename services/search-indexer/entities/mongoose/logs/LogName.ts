@@ -1,1 +1,0 @@
-export type LogName = 'analytics-service' | 'notification-service' | 'products-service' | 'search-indexer' | 'users-service'

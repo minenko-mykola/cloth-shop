@@ -1,1 +1,1 @@
-export * from "./sequelizeConnector"
+export * from "./esClient"

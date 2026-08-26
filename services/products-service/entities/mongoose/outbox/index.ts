@@ -1,5 +1,0 @@
-export * from "./BlousesOutboxSchema"
-export * from "./GlovesOutboxSchema"
-export * from "./HeadWearOutboxSchema"
-export * from "./Outbox"
-export * from "./OutboxSchema"

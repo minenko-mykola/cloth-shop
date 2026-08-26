@@ -13,6 +13,7 @@
     "@elastic/elasticsearch": "^9.4.2",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.3",
+    "@types/mongoose": "^5.11.96",
     "axios": "^1.15.2",
     "bcrypt": "^6.0.0",
     "body-parser": "^2.2.1",
@@ -22,8 +23,6 @@
     "express-validator": "^7.3.2",
     "kafkajs": "^2.2.4",
     "mongoose": "^9.9.4",
-    "mysql2": "^3.22.5",
-    "sequelize-typescript": "^2.1.6",
     "uuidv7": "^1.2.1"
   },
   "devDependencies": {

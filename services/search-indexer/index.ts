@@ -2,7 +2,6 @@ import express from "express";
 import dotenv from "dotenv";
 import {router} from "./router";
 import {kafkaConsumer, kafkaProducer} from "./messages";
-import {sequelize} from "./connectors";
 import {createIndex} from "./actions/internal";
 import mongoose from "mongoose";
 
@@ -22,7 +21,6 @@ async function start()
 {
     try
     {
-        await sequelize.authenticate();
         await mongoose.connect(MONGO_URL);
         const result = await createIndex()
 

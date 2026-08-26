@@ -1,8 +1,8 @@
 import express from "express";
 import dotenv from "dotenv";
 import {router} from "./router";
-import {sequelize} from "./connectors";
 import {kafkaConsumer, kafkaProducer} from "./messages";
+import mongoose from "mongoose";
 
 const app = express();
 dotenv.config({ path: "envs/.env.products", override: false });
@@ -13,13 +13,13 @@ app.use(router)
 
 const PORT : number = Number(process.env.PORT) || 8000;
 const TOPIC : string = process.env.TOPIC || "products";
+const MONGODB_URL = process.env.DB_URL || "mongodb://user_name:user_password@mongodb:27017/db_name?authSource=admin";
 
 async function start() : Promise<void>
 {
     try
     {
-        await sequelize.authenticate();
-        await sequelize.sync({ alter : true });
+        const result = await mongoose.connect(MONGODB_URL)
 
         await kafkaConsumer.connect();
         await kafkaProducer.connect();

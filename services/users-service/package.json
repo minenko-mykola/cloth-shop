@@ -23,8 +23,7 @@
     "express-validator": "^7.3.2",
     "jsonwebtoken": "^9.0.3",
     "kafkajs": "^2.2.4",
-    "mysql2": "^3.22.5",
-    "sequelize-typescript": "^2.1.6",
+    "mongoose": "^9.9.4",
     "uuidv7": "^1.2.1"
   },
   "devDependencies": {

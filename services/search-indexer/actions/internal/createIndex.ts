@@ -1,4 +1,4 @@
-import {esClient} from "../../connectors/esClient";
+import {esClient} from "../../connectors";
 
 export async function createIndex()
 {

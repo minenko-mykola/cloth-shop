@@ -1,6 +1,4 @@
 import express from "express";
-import {Categories, ProductModels, ProductVariations} from "../../entities/sequelize";
-import {Op} from "sequelize";
 import dotenv from "dotenv";
 dotenv.config({ path: "envs/.env.products", override : false });
 
@@ -22,22 +20,8 @@ export async function getProducts(req: express.Request, res: express.Response)
     try
     {
 
-        const batch = await ProductModels.findAll({
-            include : [{
-                model : ProductVariations
-            },{
-                model : Categories
-            }],
-            limit: limit,
-            where : {
-                id  : {
-                    [Op.gt] : offset
-                }
-            }
-        })
-
         res.status(200).json({
-            message : `${JSON.stringify(batch)}`,
+            message : `test`,
         })
     }
     catch(err)

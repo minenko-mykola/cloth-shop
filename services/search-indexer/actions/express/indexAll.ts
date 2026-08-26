@@ -1,8 +1,5 @@
 import express from "express";
 import dotenv from "dotenv";
-import {ProductModels} from "../../entities/sequelize";
-import {indexBatch, getBatch} from "../internal";
-import {uuidv7} from "uuidv7";
 
 dotenv.config({ path: "envs/.env.sequelize", override: false });
 const LIMIT : number = Number(process.env.LIMIT) || 1000;
@@ -26,21 +23,8 @@ export async function indexAll(req : express.Request, res : express.Response)
             id : log_id
         })
 
-        let batch : ProductModels[] = []
         let offset = ""
 
-        do
-        {
-            batch = await getBatch(LIMIT,offset)
-
-            if(batch.length > 0)
-            {
-                offset = batch[batch.length - 1].id!
-
-                await indexBatch(batch)
-            }
-        }
-        while (batch.length !== 0)
 
         // const result = await updateLog({
         //     id : log_id,
