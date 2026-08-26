@@ -60,6 +60,12 @@ export class ProductsOutbox extends Model<InferAttributes<ProductsOutbox>,InferC
 
     declare quantity : number;
 
+    @Column({
+        type : DataType.DATE
+    })
+
+    declare publishedAt : Date | null;
+
     @BelongsTo(() => ProductModels)
     declare model? : ProductModels;
 

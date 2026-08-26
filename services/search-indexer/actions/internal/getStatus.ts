@@ -1,4 +1,4 @@
-import {Log, LogStatus} from "../../entities/mongoose";
+import {Log, LogStatus} from "../../entities/mongoose/logs";
 import {ObjectId} from "bson";
 
 export async function getStatus(id : string) : Promise<LogStatus | null>

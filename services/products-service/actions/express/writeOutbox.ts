@@ -53,13 +53,12 @@ export async function writeOutbox(req : express.Request, res: express.Response)
                     transaction : t
                 })
 
-                const outbox = await ProductsOutbox.create({
-                    id : uuidv7(),
+                const result = await ProductsOutbox.upsert({
                     variationId : variationId,
-                    modelId : modelId,
-                    size : size,
-                    price : price,
-                    quantity : quantity
+                    modelId: modelId,
+                    size: size,
+                    price: price,
+                    quantity: quantity
                 },{
                     transaction : t
                 })

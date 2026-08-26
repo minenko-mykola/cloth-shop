@@ -1,1 +1,1 @@
-export * from "./readOutbox"
+export * from "./updateProducts"

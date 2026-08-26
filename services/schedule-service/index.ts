@@ -2,7 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import {router} from "./router";
 import cron from "node-cron"
-import {readOutbox} from "./actions";
+import {updateProducts} from "./actions";
 
 dotenv.config({ path : "envs/.env.scheduler" , override : false });
 
@@ -19,7 +19,7 @@ async function start()
     {
         cron.schedule('0 */5 * * * *',async () => {
 
-            await readOutbox();
+            await updateProducts();
         })
     }
     catch(err)

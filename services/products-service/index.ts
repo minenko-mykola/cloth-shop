@@ -19,7 +19,7 @@ async function start() : Promise<void>
     try
     {
         await sequelize.authenticate();
-        await sequelize.sync();
+        await sequelize.sync({ alter : true });
 
         await kafkaConsumer.connect();
         await kafkaProducer.connect();

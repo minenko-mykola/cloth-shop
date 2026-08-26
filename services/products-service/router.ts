@@ -1,5 +1,5 @@
 import express from "express";
-import {getProducts, readOutbox, writeOutbox} from "./actions/express";
+import {getProducts, writeOutbox} from "./actions/express";
 import {checkSchema} from "express-validator";
 
 export const router = express.Router();
@@ -44,4 +44,3 @@ const productSchema = checkSchema({
 
 router.get("/",getProducts);
 router.post("/write-outbox",productSchema,writeOutbox);
-router.get("/read-outbox",readOutbox);
