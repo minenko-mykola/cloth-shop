@@ -3,13 +3,17 @@ import dotenv from "dotenv";
 import {router} from "./router";
 import {kafkaConsumer, kafkaProducer} from "./messages";
 import mongoose from "mongoose";
+import {createRouter, updateRouter} from "./routers";
 
 const app = express();
 dotenv.config({ path: "envs/.env.products", override: false });
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(router)
+app.use("/",router)
+
+app.use("/create", createRouter);
+app.use("/update", updateRouter);
 
 const PORT : number = Number(process.env.PORT) || 8000;
 const TOPIC : string = process.env.TOPIC || "products";

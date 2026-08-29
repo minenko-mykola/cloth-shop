@@ -1,3 +1,2 @@
-export * from "./IProduct"
 export * from "./Product"
 export * from "./ProductSchema"
