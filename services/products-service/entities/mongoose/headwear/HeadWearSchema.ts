@@ -1,6 +1,12 @@
 import mongoose from "mongoose";
 
 export const HeadWearSchema = new mongoose.Schema({
+    headCircumference : {
+        type : Number,
+        required : true,
+        min : [50,"Head circumference cannot be less than 50"],
+        max : [64,"Head circumference cannot be greater than 64"],
+    },
     type : {
         type : String,
         required : true,
@@ -25,7 +31,7 @@ export const HeadWearSchema = new mongoose.Schema({
             message : '{VALUE} is not supported'
         }
     },
-    seasons : {
+    season : {
         type : [String],
         required : true,
         enum : {

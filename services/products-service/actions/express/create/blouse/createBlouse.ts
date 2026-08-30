@@ -50,8 +50,6 @@ export async function createBlouse(req : express.Request, res : express.Response
                 season: season
             });
 
-            await blouse.save();
-
             res.status(200).json({
                 message: 'Blouse created successfully.'
             })
