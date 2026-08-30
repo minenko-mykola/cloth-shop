@@ -20,8 +20,7 @@ export const UsersSchema = new mongoose.Schema({
     password : {
         type: String,
         required: [true,"User password is required"],
-        trim: true,
-        hash : true
+        trim: true
     }
 },{
     timestamps : false,

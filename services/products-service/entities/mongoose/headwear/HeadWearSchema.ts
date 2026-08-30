@@ -31,7 +31,7 @@ export const HeadWearSchema = new mongoose.Schema({
             message : '{VALUE} is not supported'
         }
     },
-    season : {
+    seasons : {
         type : [String],
         required : true,
         enum : {

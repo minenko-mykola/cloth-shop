@@ -6,7 +6,7 @@ export async function createHeadWear(req : express.Request, res : express.Respon
 {
     try
     {
-        const {name,description,price,quantity,headCircumference,type,season,sex,visor,earsClosed,sizeAdjuster,ventilationHoles} = req.body;
+        const {name,description,price,quantity,headCircumference,type,seasons,sex,visor,earsClosed,sizeAdjuster,ventilationHoles} = req.body;
 
         const errors = validationResult(req);
 
@@ -25,7 +25,7 @@ export async function createHeadWear(req : express.Request, res : express.Respon
             quantity: quantity,
             headCircumference : headCircumference,
             type : type,
-            season : season,
+            seasons : seasons,
             sex : sex,
             visor : visor,
             earsClosed : earsClosed,
@@ -42,7 +42,7 @@ export async function createHeadWear(req : express.Request, res : express.Respon
                 quantity: quantity,
                 headCircumference : headCircumference,
                 type : type,
-                season : season,
+                seasons : seasons,
                 sex : sex,
                 visor : visor,
                 earsClosed : earsClosed,

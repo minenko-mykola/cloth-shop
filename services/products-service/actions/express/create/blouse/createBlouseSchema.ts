@@ -46,7 +46,7 @@ export const createBlouseSchema = checkSchema({
             errorMessage: "Size is required"
         },
         isIn : {
-            options : [
+            options : [[
                 'xs',
                 's',
                 'm',
@@ -54,7 +54,7 @@ export const createBlouseSchema = checkSchema({
                 'xl',
                 'xxl',
                 'xxxl'
-            ],
+            ]],
             errorMessage : "Invalid size"
         }
     },
@@ -92,7 +92,7 @@ export const createBlouseSchema = checkSchema({
             errorMessage: "Collar is required"
         },
         isIn : {
-            options : [
+            options : [[
                 'round',
                 'v-neck',
                 'square',
@@ -104,7 +104,7 @@ export const createBlouseSchema = checkSchema({
                 'turtleneck',
                 'halter',
                 'off-shoulder'
-            ],
+            ]],
             errorMessage : "Invalid collar"
         }
     },
@@ -175,14 +175,14 @@ export const createBlouseSchema = checkSchema({
             errorMessage: "Length is required"
         },
         isIn : {
-            options: [
+            options: [[
                 'cropped',
                 'waist',
                 'hip',
                 'mid-hip',
                 'long',
                 'tunic'
-            ],
+            ]],
             errorMessage : 'Invalid length'
         }
     },
@@ -191,7 +191,7 @@ export const createBlouseSchema = checkSchema({
             errorMessage: "Sleeve is required"
         },
         isIn : {
-            options: [
+            options: [[
                 'sleeveless',
                 'cap',
                 'short',
@@ -202,11 +202,11 @@ export const createBlouseSchema = checkSchema({
                 'puff',
                 'batwing',
                 'raglan'
-            ],
+            ]],
             errorMessage : 'Invalid sleeve'
         }
     },
-    season : {
+    seasons : {
         exists: {
             errorMessage: "Season is required"
         },

@@ -1,6 +1,6 @@
 import {checkSchema} from "express-validator";
 
-export const createShirtSchema = checkSchema({
+export const createTShirtSchema = checkSchema({
     name : {
         isString : true,
         exists: {
@@ -64,17 +64,11 @@ export const createShirtSchema = checkSchema({
         },
         isIn: {
             options : [[
-                'classic',
-                'button-down',
-                'spread',
-                'wide-spread',
-                'cutaway',
-                'mandarin',
-                'band',
-                'polo',
-                'camp',
-                'cub an',
-                'wing'
+                'crew',
+                'v-neck',
+                'scoop',
+                'boat',
+                'henley'
             ]],
             errorMessage : "Invalid collar"
         }
@@ -112,7 +106,7 @@ export const createShirtSchema = checkSchema({
             errorMessage: "Fastener is required"
         },
         isIn: {
-            options : [[
+            options :[ [
                 'buttons',
                 'snap-buttons',
                 'zipper',
@@ -127,7 +121,6 @@ export const createShirtSchema = checkSchema({
         },
         isIn: {
             options : [[
-                'sleeveless',
                 'short',
                 'three-quarter',
                 'long'
@@ -141,15 +134,15 @@ export const createShirtSchema = checkSchema({
         },
         isIn: {
             options : [[
-                'dress-shirt',
-                'casual-shirt',
-                'oxford',
-                'flannel',
-                'linen',
-                'denim',
-                'hawaiian',
-                'overshirt',
-                'tunic'
+                'basic',
+                'polo',
+                'henley',
+                'graphic',
+                'oversized',
+                'crop-top',
+                'longline',
+                'sports',
+                'thermal'
             ]],
             errorMessage : "Type is required"
         }

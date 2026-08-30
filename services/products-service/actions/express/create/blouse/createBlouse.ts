@@ -6,7 +6,7 @@ export async function createBlouse(req : express.Request, res : express.Response
 {
     try
     {
-        const {name,description,price,quantity,size,back,collar,style,fasteners,length,sleeve,season} = req.body;
+        const {name,description,price,quantity,size,back,collar,style,fasteners,length,sleeve,seasons} = req.body;
 
         const errors = validationResult(req);
 
@@ -30,7 +30,7 @@ export async function createBlouse(req : express.Request, res : express.Response
             fasteners: fasteners,
             length: length,
             sleeve: sleeve,
-            season: season
+            seasons: seasons
         })
 
         if(!candidate)
@@ -47,7 +47,7 @@ export async function createBlouse(req : express.Request, res : express.Response
                 fasteners: fasteners,
                 length: length,
                 sleeve: sleeve,
-                season: season
+                seasons: seasons
             });
 
             res.status(200).json({

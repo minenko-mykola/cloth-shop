@@ -1,8 +1,8 @@
 import express from "express";
 import {validationResult} from "express-validator";
-import {Shirt} from "../../../../entities/mongoose/shirts";
+import {TShirt} from "../../../../entities/mongoose/tshirts";
 
-export async function createShirt(req : express.Request, res : express.Response)
+export async function createTShirt(req : express.Request, res : express.Response)
 {
     try
     {
@@ -18,7 +18,7 @@ export async function createShirt(req : express.Request, res : express.Response)
             return;
         }
 
-        const candidate = await Shirt.findOne({
+        const candidate = await TShirt.findOne({
             name: name,
             description: description,
             price: price,
@@ -36,7 +36,7 @@ export async function createShirt(req : express.Request, res : express.Response)
 
         if(!candidate)
         {
-            const shirt =  await Shirt.create({
+            const tshirt =  await TShirt.create({
                 name: name,
                 description: description,
                 price: price,
@@ -53,22 +53,22 @@ export async function createShirt(req : express.Request, res : express.Response)
             });
 
             res.status(200).json({
-                message: 'Shirt created successfully.'
+                message: 'Tshirt created successfully.'
             })
         }
         else
         {
             res.status(200).json({
-                message: 'Shirt has already been created.'
+                message: 'Tshirt has already been created.'
             })
         }
 
     }
     catch(err)
     {
-        console.log(`[Products Service] Error while creating shirt:${err}`);
+        console.log(`[Products Service] Error while creating tshirt:${err}`);
         res.status(500).json({
-            message : `Error while creating shirt:${err}`
+            message : `Error while creating tshirt:${err}`
         });
     }
 }

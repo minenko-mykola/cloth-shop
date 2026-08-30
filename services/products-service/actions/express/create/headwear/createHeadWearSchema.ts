@@ -55,7 +55,7 @@ export const createHeadWearSchema = checkSchema({
             errorMessage: "Type is required"
         },
         isIn : {
-            options : [
+            options : [[
                 'cap',
                 'baseball-cap',
                 'beanie',
@@ -71,11 +71,11 @@ export const createHeadWearSchema = checkSchema({
                 'ushanka',
                 'cowboy-hat',
                 'sun-hat'
-            ],
+            ]],
             errorMessage : "Invalid type"
         }
     },
-    season : {
+    seasons : {
         exists: {
             errorMessage: "Season is required"
         },
@@ -107,7 +107,6 @@ export const createHeadWearSchema = checkSchema({
             errorMessage : "Sex is required"
         },
         isIn : {
-            // Double square brackets to make it work(without it doesn`t)
             options : [
                 [
                 'male',
@@ -123,14 +122,14 @@ export const createHeadWearSchema = checkSchema({
             errorMessage: "Visor is required"
         },
         isIn : {
-            options : [
+            options : [[
                 'none',
                 'short',
                 'standard',
                 'long',
                 'curved',
                 'flat'
-            ],
+            ]],
             errorMessage : "Invalid visor"
         }
     },
