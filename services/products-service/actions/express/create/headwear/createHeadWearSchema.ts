@@ -23,6 +23,13 @@ export const createHeadWearSchema = checkSchema({
             errorMessage : "Description must be between 10 and 100 characters"
         }
     },
+    owner : {
+        exists : {
+            errorMessage : "OwnerId is required"
+        },
+        isMongoId : true,
+        errorMessage : "OwnerId must be MongoId"
+    },
     price : {
         exists: {
             errorMessage: "Price is required"

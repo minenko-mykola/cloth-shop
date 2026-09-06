@@ -1,2 +1,2 @@
-export * from "./Shirt"
+export * from "./Shirts"
 export * from "./ShirtSchema"

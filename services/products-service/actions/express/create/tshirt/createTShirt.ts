@@ -1,6 +1,6 @@
 import express from "express";
 import {validationResult} from "express-validator";
-import {TShirt} from "../../../../entities/mongoose/tshirts";
+import {TShirts} from "../../../../entities/mongoose/tshirts";
 
 export async function createTShirt(req : express.Request, res : express.Response)
 {
@@ -18,7 +18,7 @@ export async function createTShirt(req : express.Request, res : express.Response
             return;
         }
 
-        const candidate = await TShirt.findOne({
+        const candidate = await TShirts.findOne({
             name: name,
             description: description,
             price: price,
@@ -27,7 +27,7 @@ export async function createTShirt(req : express.Request, res : express.Response
             collar : collar,
             cut : cut,
             fabricDensity : fabricDensity,
-            fastener : fastener,
+            fasteners : fastener,
             sleeveLength : sleeveLength,
             type : type,
             seasons : seasons,
@@ -36,7 +36,7 @@ export async function createTShirt(req : express.Request, res : express.Response
 
         if(!candidate)
         {
-            const tshirt =  await TShirt.create({
+            const tshirt =  await TShirts.create({
                 name: name,
                 description: description,
                 price: price,
@@ -45,7 +45,7 @@ export async function createTShirt(req : express.Request, res : express.Response
                 collar : collar,
                 cut : cut,
                 fabricDensity : fabricDensity,
-                fastener : fastener,
+                fasteners : fastener,
                 sleeveLength : sleeveLength,
                 type : type,
                 seasons : seasons,

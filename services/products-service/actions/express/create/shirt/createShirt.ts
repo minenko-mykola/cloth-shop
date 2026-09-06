@@ -1,12 +1,12 @@
 import express from "express";
 import {validationResult} from "express-validator";
-import {Shirt} from "../../../../entities/mongoose/shirts";
+import {Shirts} from "../../../../entities/mongoose/shirts";
 
 export async function createShirt(req : express.Request, res : express.Response)
 {
     try
     {
-        const {name,description,price,quantity,size,collar,cut,fabricDensity,fastener,sleeveLength,type,seasons,sex} = req.body;
+        const {name,description,price,quantity,size,collar,cut,fabricDensity,fasteners,sleeveLength,type,seasons,sex} = req.body;
 
         const errors = validationResult(req);
 
@@ -18,7 +18,7 @@ export async function createShirt(req : express.Request, res : express.Response)
             return;
         }
 
-        const candidate = await Shirt.findOne({
+        const candidate = await Shirts.findOne({
             name: name,
             description: description,
             price: price,
@@ -27,7 +27,7 @@ export async function createShirt(req : express.Request, res : express.Response)
             collar : collar,
             cut : cut,
             fabricDensity : fabricDensity,
-            fastener : fastener,
+            fasteners : fasteners,
             sleeveLength : sleeveLength,
             type : type,
             seasons : seasons,
@@ -36,7 +36,7 @@ export async function createShirt(req : express.Request, res : express.Response)
 
         if(!candidate)
         {
-            const shirt =  await Shirt.create({
+            const shirt =  await Shirts.create({
                 name: name,
                 description: description,
                 price: price,
@@ -45,7 +45,7 @@ export async function createShirt(req : express.Request, res : express.Response)
                 collar : collar,
                 cut : cut,
                 fabricDensity : fabricDensity,
-                fastener : fastener,
+                fasteners : fasteners,
                 sleeveLength : sleeveLength,
                 type : type,
                 seasons : seasons,

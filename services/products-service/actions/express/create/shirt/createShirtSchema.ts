@@ -23,6 +23,13 @@ export const createShirtSchema = checkSchema({
             errorMessage : "Description must be between 10 and 100 characters"
         }
     },
+    owner : {
+        exists : {
+            errorMessage : "OwnerId is required"
+        },
+        isMongoId : true,
+        errorMessage : "OwnerId must be MongoId"
+    },
     price : {
         exists: {
             errorMessage: "Price is required"
@@ -107,9 +114,9 @@ export const createShirtSchema = checkSchema({
             errorMessage : "Invalid fabric density"
         }
     },
-    fastener : {
+    fasteners : {
         exists: {
-            errorMessage: "Fastener is required"
+            errorMessage: "Fasteners is required"
         },
         isIn: {
             options : [[
@@ -118,7 +125,7 @@ export const createShirtSchema = checkSchema({
                 'zipper',
                 'none'
             ]],
-            errorMessage : "Invalid fastener"
+            errorMessage : "Invalid fasteners"
         }
     },
     sleeveLength : {

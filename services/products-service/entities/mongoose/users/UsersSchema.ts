@@ -21,8 +21,13 @@ export const UsersSchema = new mongoose.Schema({
         type: String,
         required: [true,"User password is required"],
         trim: true
-    }
+    },
+    applications : [{
+        type : mongoose.Schema.Types.ObjectId,
+        ref : "VolunteerApplications",
+    }]
 },{
     timestamps : false,
-    versionKey : false
+    versionKey : false,
+    discriminatorKey : 'type'
 })

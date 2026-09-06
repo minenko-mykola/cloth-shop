@@ -1,6 +1,6 @@
 import express from "express";
 import {validationResult} from "express-validator";
-import {Blouse} from "../../../../entities/mongoose/blouses";
+import {Blouses} from "../../../../entities/mongoose/blouses";
 
 export async function createBlouse(req : express.Request, res : express.Response)
 {
@@ -18,7 +18,7 @@ export async function createBlouse(req : express.Request, res : express.Response
             return;
         }
 
-        const candidate = await Blouse.findOne({
+        const candidate = await Blouses.findOne({
             name: name,
             description: description,
             price: price,
@@ -35,7 +35,7 @@ export async function createBlouse(req : express.Request, res : express.Response
 
         if(!candidate)
         {
-            const blouse =  await Blouse.create({
+            const blouse =  await Blouses.create({
                 name: name,
                 description: description,
                 price: price,

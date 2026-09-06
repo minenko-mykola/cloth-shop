@@ -20,6 +20,15 @@ export const ProductSchema = new mongoose.Schema({
         type: Number,
         required: [true, "Product quantity is required"],
         min: [0,"Product quantity must be greater or equal to 0"],
+    },
+    owner : {
+        type : mongoose.Schema.Types.ObjectId,
+        required: [true, "Product owner is required"],
+        ref : "Sellers"
+    },
+    discount : {
+        type : mongoose.Schema.Types.ObjectId,
+        ref : "Discounts"
     }
 },{
     timestamps: false,

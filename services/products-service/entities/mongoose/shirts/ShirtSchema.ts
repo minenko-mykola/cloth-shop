@@ -63,7 +63,7 @@ export const ShirtSchema = new mongoose.Schema({
             message : '{VALUE} is not supported'
         }
     },
-    fastener : {
+    fasteners : {
         type : String,
         required : true,
         enum : {
