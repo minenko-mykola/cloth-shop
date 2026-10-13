@@ -32,13 +32,7 @@ export const PaymentsSchema = new mongoose.Schema(
                 message: "Invalid payment status: {VALUE}",
             },
             default: "pending",
-        },
-
-        transactions: [{
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "PaymentTransactions",
-            default: null,
-        }],
+        }
     },
     {
         timestamps: true,

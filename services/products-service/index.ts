@@ -4,6 +4,7 @@ import {router} from "./router";
 import {kafkaConsumer, kafkaProducer} from "./messages";
 import mongoose from "mongoose";
 import {createRouter, updateRouter} from "./routers";
+import {createAll} from "./shared";
 
 const app = express();
 dotenv.config({ path: "envs/.env.products", override: false });
@@ -30,6 +31,8 @@ async function start() : Promise<void>
 
         await kafkaConsumer.subscribe({ topic : TOPIC, fromBeginning : true })
         await kafkaConsumer.run();
+
+        await createAll();
 
         console.log(`Synchronized!!!`)
     }

@@ -47,6 +47,13 @@ export const FundraisingCampaignsSchema = new mongoose.Schema(
         endDate: {
             type: Date,
             required: [true, "End date is required"],
+
+            validate: {
+                validator: function (value : any) {
+                    return value > this.startDate;
+                },
+                message: "End date must be later than start date",
+            }
         },
 
         author: {

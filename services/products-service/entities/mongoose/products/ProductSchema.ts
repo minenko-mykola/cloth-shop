@@ -26,10 +26,10 @@ export const ProductSchema = new mongoose.Schema({
         required: [true, "Product owner is required"],
         ref : "Sellers"
     },
-    discount : {
+    discounts : [{
         type : mongoose.Schema.Types.ObjectId,
         ref : "Discounts"
-    }
+    }]
 },{
     timestamps: false,
     versionKey: false,

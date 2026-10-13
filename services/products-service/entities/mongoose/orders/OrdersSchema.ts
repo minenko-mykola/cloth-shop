@@ -10,18 +10,6 @@ export const OrdersSchema = new mongoose.Schema(
                     required: [true, "Product is required"],
                 },
 
-                name: {
-                    type: String,
-                    required: [true, "Product name is required"],
-                    trim: true,
-                },
-
-                description: {
-                    type: String,
-                    required: [true, "Product description is required"],
-                    trim: true,
-                },
-
                 unitPrice: {
                     type: Number,
                     required: [true, "Product unit price is required"],
@@ -36,12 +24,6 @@ export const OrdersSchema = new mongoose.Schema(
                         validator: Number.isInteger,
                         message: "Product quantity must be an integer",
                     },
-                },
-
-                price: {
-                    type: Number,
-                    required: [true, "Product price is required"],
-                    min: [0.01, "Product price must be greater than 0"],
                 },
 
                 finalPrice: {
@@ -99,7 +81,7 @@ export const OrdersSchema = new mongoose.Schema(
             phone: {
                 type: String,
                 required: [true, "Phone is required"],
-                trim: true,
+                trim: true
             },
 
             city: {
@@ -117,6 +99,7 @@ export const OrdersSchema = new mongoose.Schema(
             postalCode: {
                 type: String,
                 trim: true,
+                required: [true, "Postal code is required"],
             }
         },
     },

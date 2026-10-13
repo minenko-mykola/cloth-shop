@@ -17,6 +17,15 @@ export const DiscountsSchema = new mongoose.Schema(
             },
         ],
 
+        auditory : {
+            type: String,
+            required: [true,"Category is required"],
+            enum : {
+                values : ["all","volunteer","users"],
+                errorMessage : '{VALUE} is not supported'
+            }
+        },
+
         seller : {
             type : mongoose.Schema.Types.ObjectId,
             ref : "Sellers",

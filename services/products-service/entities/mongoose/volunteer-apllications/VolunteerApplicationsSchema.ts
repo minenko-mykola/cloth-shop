@@ -6,12 +6,15 @@ export const VolunteerApplicationSchema = new mongoose.Schema({
         ref : "Users",
         required : [true,"User ID is required"],
     },
-    documents : [{
-        src : {
-            type : String,
-            required : [true,"Document src is required"],
-        }
-    }]
+    documents: {
+        type : [{
+            src : {
+                type : String,
+                required : [true,"SRC is required"],
+            }
+        }],
+
+    }
 },{
     timestamps : true,
     versionKey : false,

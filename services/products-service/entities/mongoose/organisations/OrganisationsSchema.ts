@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 
 export const OrganisationsSchema = new mongoose.Schema({
     edrpou : {
+        type : String,
         required: [true, "EDRPOU is required"],
         unique: [true, "EDRPOU must be unique"],
         trim: true,
