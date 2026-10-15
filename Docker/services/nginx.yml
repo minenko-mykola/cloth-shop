@@ -18,8 +18,6 @@ services:
     depends_on:
       frontend:
         condition: service_started
-      gateway:
-        condition: service_started
       kibana:
         condition: service_healthy
 

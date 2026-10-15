@@ -9,7 +9,6 @@ include:
   - path: infrastructure/redis.yml
   - path: infrastructure/elk.yml
   - path: infrastructure/kafka.yml
-  - path: services/gateway.yml
   - path: services/keycloak.yml
   - path: services/frontend.yml
   - path: services/espocrm.yml
