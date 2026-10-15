@@ -1,6 +1,0 @@
-export * from "./IconImage"
-export * from "./FootwearIcon"
-export * from "./SatchelIcon"
-export * from "./SportShirtIcon"
-export * from "./IconImageType"
-export * from "./LogoIcon"

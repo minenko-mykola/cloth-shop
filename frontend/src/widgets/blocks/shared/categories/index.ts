@@ -1,5 +1,0 @@
-export * from "./ProductForm"
-export * from "./CreateProductInfoForm"
-export * from "./AddPhotoForm"
-export * from "./CategoryInfoForm"
-export * from "./CategoryForm"
