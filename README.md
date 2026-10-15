@@ -7,18 +7,30 @@ in frontend development and system architecture.
 
 ---
 
-## Authors 
-- Mykola Minenko - [My Github profile](https://github.com/minenko-mykola) 
-- I am a **second-year student** at the **Taras Shevchenko National University of Kyiv**,
-specializing in **Software Engineering**.
+## Roadmap
 
+- [ ] Finalize MongoDB schemas
+- [ ] Code products-service
+- [ ] Code search-indexer
+- [ ] Code schedule-service
+- [ ] Migrate frontend state management from MobX to Redux
+
+## Project Status
+
+The project is currently under active development. Core application functionality has not been implemented yet.
+
+See the [Roadmap](#roadmap) for planned tasks.
+---
+
+## Authors 
+- Mykola Minenko - [My Github profile](https://github.com/minenko-mykola)
 ---
 ## Tech Stack
 
 ### Frontend
-- **Next.js (React 19)** — modern SSR/SPA framework
+- **Next.js (React 19)** — React framework for server-rendered and client-side applications
 - **Chakra UI** — UI component library
-- **MobX** — state management
+- **MobX** — state management (planned migration to Redux)
 - **React Hook Form** — form handling
 - **i18next** — internationalization (i18n)
 
@@ -34,13 +46,15 @@ specializing in **Software Engineering**.
 ---
 
 ### Data & Storage
-- **PostgreSQL / MySQL** — relational databases
-- **Sequelize (TypeScript)** — ORM
+- **MongoDB** — document-oriented database
+- **MySQL** - relational database
+- **Sequelize (TypeScript)** — ORM for MySQL
+- **Mongoose** - ODM for MongoDB
 
 ---
 
 ### Performance & Search
-- **Redis** — caching and fast state updates
+- **Redis** — caching and fast data access
 - **Elasticsearch** — search & indexing
 
 ---
@@ -59,7 +73,7 @@ specializing in **Software Engineering**.
 ## Requirements
 
 - [Docker](https://www.docker.com/)
-- [Node.js](https://nodejs.org/)
+- [Node.js](https://nodejs.org/) (for local development)
 
 ---
 
@@ -71,40 +85,35 @@ specializing in **Software Engineering**.
 git clone https://github.com/minenko-mykola/cloth-shop.git
 ```
 
+2. Navigate to the project directory:
 ```bash
 cd cloth-shop
 ```
 
-2. Install dependencies:
-
-    - Frontend:
-
-   ```bash
-   cd frontend
-   ```
-
-    ```bash
-    npm install
-    ```
-
-    - Backend:
-
-   ```bash
-   cd backend
-   ```
-
-    ```bash
-    npm install
-    ```
----
-
 ## Usage
 
-1. Starting Backend:
+1. Starting the application:
     ```bash
-    docker-compose up -d --build
+    docker compose up --build --watch
     ```
-2. Starting Frontend:
-    ```bash
-    npm run dev      
-    ```
+
+2. Open [http://localhost](http://localhost) in your browser.
+
+## Useful Docker Commands
+
+### Stop the application
+
+```bash
+    docker compose down
+```
+
+### View service logs
+
+```bash
+    docker compose logs -f
+```
+
+### Rebuild and restart services
+```bash
+    docker compose up -d --build
+```
